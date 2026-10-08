@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F5F2E9"/>
+  <!-- Oversized silhouette -->
+  <path d="M 150 140 L 240 115 C 265 140 335 140 360 115 L 450 140 L 510 270 L 440 290 L 440 520 L 160 520 L 160 290 L 90 270 Z" fill="#292929" stroke="#171717" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Collar -->
+  <path d="M 240 115 C 265 150 335 150 360 115" fill="none" stroke="#F5F2E9" stroke-width="4"/>
+  <!-- Dropped shoulder seams -->
+  <line x1="150" y1="140" x2="190" y2="280" stroke="#66645F" stroke-width="3"/>
+  <line x1="450" y1="140" x2="410" y2="280" stroke="#66645F" stroke-width="3"/>
+  <!-- Print Area -->
+  <rect x="220" y="210" width="160" height="220" fill="none" stroke="#F2D400" stroke-width="2" stroke-dasharray="6,4" rx="4"/>
+  <text x="300" y="325" font-family="'Space Mono', monospace" font-size="14" fill="#F2D400" text-anchor="middle">PRINT AREA</text>
+  <!-- BROVE Tag -->
+  <rect x="275" y="130" width="50" height="18" fill="#F2D400"/>
+  <text x="300" y="143" font-family="'Bebas Neue', sans-serif" font-size="12" fill="#171717" text-anchor="middle">BROVE</text>
+</svg>

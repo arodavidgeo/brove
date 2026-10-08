@@ -1,0 +1,16 @@
+{
+  "name": "BROVE Custom Apparel",
+  "short_name": "BROVE",
+  "description": "Wear Your Identity. Custom T-Shirt & Apparel Printing in DTF and Embroidery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F2E9",
+  "theme_color": "#F2D400",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

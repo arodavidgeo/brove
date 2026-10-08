@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /checkout/payment
+Disallow: /order-confirmation
+
+Sitemap: https://brove.in/sitemap.xml

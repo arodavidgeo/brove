@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F5F2E9"/>
+  <!-- Sweatshirt body -->
+  <path d="M 160 150 L 250 120 L 350 120 L 440 150 L 490 330 L 420 350 L 420 500 L 180 500 L 180 350 L 110 330 Z" fill="#66645F" stroke="#171717" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Ribbed Crew Collar -->
+  <path d="M 250 120 C 270 145 330 145 350 120" fill="none" stroke="#171717" stroke-width="5"/>
+  <!-- Print Area -->
+  <rect x="220" y="210" width="160" height="200" fill="none" stroke="#F2D400" stroke-width="2" stroke-dasharray="6,4" rx="4"/>
+  <text x="300" y="315" font-family="'Space Mono', monospace" font-size="14" fill="#F2D400" text-anchor="middle">PRINT AREA</text>
+</svg>

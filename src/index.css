@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 44 33% 94%; /* #F5F2E9 */
+    --foreground: 0 0% 9%; /* #171717 */
+    --primary: 53 100% 47%; /* #F2D400 */
+    --primary-foreground: 0 0% 9%;
+    --border: 40 18% 81%; /* #D8D3C7 */
+  }
+
+  body {
+    background-color: #F5F2E9;
+    color: #171717;
+    font-family: 'Manrope', 'Outfit', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus indicators */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom editorial typography & industrial accents */
+.font-headline {
+  font-family: 'Anton', 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-display {
+  font-family: 'Anton', 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-brush {
+  font-family: 'Permanent Marker', cursive;
+}
+
+/* Material symbol styling helper */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Industrial Workshop Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+

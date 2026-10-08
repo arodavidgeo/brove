@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F5F2E9"/>
+  <!-- Button-down Shirt Body -->
+  <path d="M 170 140 L 240 115 L 360 115 L 430 140 L 470 240 L 410 260 L 410 490 L 190 490 L 190 260 L 130 240 Z" fill="#FFFFFF" stroke="#171717" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Collar & Placket -->
+  <polygon points="240,115 300,165 360,115" fill="#F5F2E9" stroke="#171717" stroke-width="3"/>
+  <line x1="300" y1="165" x2="300" y2="490" stroke="#171717" stroke-width="2"/>
+  <circle cx="300" cy="200" r="3" fill="#171717"/>
+  <circle cx="300" cy="250" r="3" fill="#171717"/>
+  <circle cx="300" cy="300" r="3" fill="#171717"/>
+  <circle cx="300" cy="350" r="3" fill="#171717"/>
+  <circle cx="300" cy="400" r="3" fill="#171717"/>
+  <!-- Chest Pocket -->
+  <rect x="230" y="210" width="50" height="60" fill="none" stroke="#D8D3C7" stroke-width="2"/>
+  <!-- Embroidery Target -->
+  <rect x="330" y="210" width="45" height="45" fill="none" stroke="#F2D400" stroke-width="2" stroke-dasharray="4,3" rx="2"/>
+  <text x="352" y="238" font-family="'Space Mono', monospace" font-size="9" fill="#66645F" text-anchor="middle">EMBROIDERY</text>
+</svg>

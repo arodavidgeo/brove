@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F5F2E9"/>
+  <!-- T-shirt body outline -->
+  <path d="M 180 140 L 250 110 C 270 135 330 135 350 110 L 420 140 L 470 240 L 410 270 L 410 490 L 190 490 L 190 270 L 130 240 Z" fill="#FFFFFF" stroke="#171717" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Collar -->
+  <path d="M 250 110 C 270 145 330 145 350 110" fill="none" stroke="#171717" stroke-width="4"/>
+  <!-- Sleeve seam left & right -->
+  <line x1="180" y1="140" x2="210" y2="250" stroke="#D8D3C7" stroke-width="3" stroke-dasharray="4,4"/>
+  <line x1="420" y1="140" x2="390" y2="250" stroke="#D8D3C7" stroke-width="3" stroke-dasharray="4,4"/>
+  <!-- Printable Area Indicator -->
+  <rect x="230" y="210" width="140" height="180" fill="#F5F2E9" stroke="#F2D400" stroke-width="2" stroke-dasharray="6,4" rx="4"/>
+  <text x="300" y="305" font-family="'Space Mono', monospace" font-size="14" fill="#66645F" text-anchor="middle">PRINT AREA</text>
+  <!-- BROVE Tag -->
+  <rect x="280" y="125" width="40" height="15" fill="#171717"/>
+  <text x="300" y="136" font-family="'Bebas Neue', sans-serif" font-size="10" fill="#F2D400" text-anchor="middle">BROVE</text>
+</svg>

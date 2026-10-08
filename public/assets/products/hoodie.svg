@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <rect width="600" height="600" fill="#F5F2E9"/>
+  <!-- Hood behind -->
+  <path d="M 230 110 C 230 60 370 60 370 110" fill="#171717" stroke="#171717" stroke-width="4"/>
+  <!-- Hoodie body -->
+  <path d="M 160 150 L 240 120 L 360 120 L 440 150 L 490 320 L 420 340 L 420 500 L 180 500 L 180 340 L 110 320 Z" fill="#292929" stroke="#171717" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Hood drawstrings -->
+  <path d="M 270 120 Q 260 210 270 230" fill="none" stroke="#F5F2E9" stroke-width="3"/>
+  <path d="M 330 120 Q 340 210 330 230" fill="none" stroke="#F5F2E9" stroke-width="3"/>
+  <!-- Kangaroo pocket -->
+  <path d="M 230 380 L 370 380 L 390 470 L 210 470 Z" fill="#171717" stroke="#66645F" stroke-width="2"/>
+  <!-- Print Area -->
+  <rect x="220" y="200" width="160" height="160" fill="none" stroke="#F2D400" stroke-width="2" stroke-dasharray="6,4" rx="4"/>
+  <text x="300" y="285" font-family="'Space Mono', monospace" font-size="14" fill="#F2D400" text-anchor="middle">PRINT / EMBROIDERY</text>
+</svg>
