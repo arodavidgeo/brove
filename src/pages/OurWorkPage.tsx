@@ -3,202 +3,177 @@ import { Link } from "react-router-dom";
 import { SEOHead } from "../components/layout/SEOHead";
 import { ALL_REFERENCE_WORK } from "../data/products";
 import { WorkSample } from "../types";
-import { ArrowRight, Sparkles, MessageCircle, Eye } from "lucide-react";
-import { BUSINESS_FACTS } from "../data/brove-content";
-import { WorkshopTicker } from "../components/layout/WorkshopTicker";
 import { SampleLightbox } from "../components/ui/SampleLightbox";
+import { WorkshopTicker } from "../components/layout/WorkshopTicker";
+import { Eye } from "lucide-react";
 
 export const OurWorkPage: React.FC = () => {
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState<"ALL" | "CUSTOM TEES" | "OVERSIZED" | "EMBROIDERY" | "TEAM & EVENT WEAR">("ALL");
   const [selectedSample, setSelectedSample] = useState<WorkSample | null>(null);
 
+  const categories = ["ALL", "CUSTOM TEES", "OVERSIZED", "EMBROIDERY", "TEAM & EVENT WEAR"] as const;
+
   const filteredWork = ALL_REFERENCE_WORK.filter((item) => {
-    if (filter === "all") return true;
-    if (filter === "back-print") return item.category === "back-print";
-    if (filter === "acid-wash") return item.category === "acid-wash";
-    if (filter === "t-shirt") return item.category === "t-shirt";
-    if (filter === "macro") return item.category === "macro";
+    if (filter === "ALL") return true;
+    if (filter === "OVERSIZED") return item.apparelType.includes("Oversized");
+    if (filter === "CUSTOM TEES") return item.apparelType.includes("T-Shirt");
+    if (filter === "EMBROIDERY") return item.printMethod.includes("Embroidery") || item.apparelType === "Polo T-Shirt";
+    if (filter === "TEAM & EVENT WEAR") return item.category === "back-print" || item.apparelType.includes("Regular");
     return true;
   });
 
   return (
     <>
       <SEOHead
-        title="OUR WORK : Real Apparel & Print Samples | BROVE"
-        description="Explore actual custom apparel and print samples created by BROVE. Real photographs of printed T-shirts, oversized streetwear, and mineral acid wash pieces."
+        title="OUR WORK : Real Apparel & Print Archive | BROVE"
+        description="Authentic physical garments photographed in our workshop. DTF back graphics, chest placements, mineral acid wash finishes, and precision embroidery details."
         path="/our-work"
       />
 
-      {/* Lightbox modal */}
       <SampleLightbox sample={selectedSample} onClose={() => setSelectedSample(null)} />
 
-      <div className="w-full bg-surface-paper py-8 md:py-16 pt-24">
+      <div className="w-full bg-surface-paper dark:bg-surface-dark text-text-primary dark:text-text-on-dark pt-20 transition-colors duration-200">
         
-        {/* Workshop Marquee Ticker */}
-        <WorkshopTicker className="mb-8" />
-
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 space-y-10">
-          
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 bg-primary-container text-text-primary px-3 py-1 font-mono text-xs font-bold border border-text-primary shadow-[2px_2px_0px_#171717]">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>AUTHENTIC WORKSHOP ARCHIVE</span>
-            </div>
-            <h1 className="font-headline text-5xl sm:text-7xl uppercase text-text-primary tracking-tight leading-none">
-              OUR WORK.
-            </h1>
-            <p className="font-body text-sm sm:text-base text-text-muted leading-relaxed">
-              WHAT BROVE HAS PRINTED. Real unedited apparel photographed in our physical workshop in Coimbatore. Explore actual DTF back graphics, front chest placements, mineral acid wash finishes, and print cure details.
-            </p>
-          </div>
-
-          {/* Filter Tabs by Perspective & Technique */}
-          <div className="flex flex-wrap items-center justify-center gap-2 border-b border-border-neutral pb-6">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-wider rounded font-bold transition-all ${
-                filter === "all"
-                  ? "bg-surface-dark text-text-on-dark shadow-[2px_2px_0px_#171717]"
-                  : "bg-white text-text-primary hover:bg-surface-paper border border-border-neutral"
-              }`}
-            >
-              ALL SAMPLES ({ALL_REFERENCE_WORK.length})
-            </button>
-            <button
-              onClick={() => setFilter("back-print")}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-wider rounded font-bold transition-all ${
-                filter === "back-print"
-                  ? "bg-surface-dark text-text-on-dark shadow-[2px_2px_0px_#171717]"
-                  : "bg-white text-text-primary hover:bg-surface-paper border border-border-neutral"
-              }`}
-            >
-              FULL BACK GRAPHICS
-            </button>
-            <button
-              onClick={() => setFilter("acid-wash")}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-wider rounded font-bold transition-all ${
-                filter === "acid-wash"
-                  ? "bg-surface-dark text-text-on-dark shadow-[2px_2px_0px_#171717]"
-                  : "bg-white text-text-primary hover:bg-surface-paper border border-border-neutral"
-              }`}
-            >
-              ACID WASH PRINTS
-            </button>
-            <button
-              onClick={() => setFilter("t-shirt")}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-wider rounded font-bold transition-all ${
-                filter === "t-shirt"
-                  ? "bg-surface-dark text-text-on-dark shadow-[2px_2px_0px_#171717]"
-                  : "bg-white text-text-primary hover:bg-surface-paper border border-border-neutral"
-              }`}
-            >
-              FRONT CHEST ART
-            </button>
-            <button
-              onClick={() => setFilter("macro")}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-wider rounded font-bold transition-all ${
-                filter === "macro"
-                  ? "bg-surface-dark text-text-on-dark shadow-[2px_2px_0px_#171717]"
-                  : "bg-white text-text-primary hover:bg-surface-paper border border-border-neutral"
-              }`}
-            >
-              MACRO CURE DETAILS
-            </button>
-          </div>
-
-          {/* Real Work Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredWork.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setSelectedSample(item)}
-                className="bg-white border-2 border-text-primary rounded overflow-hidden shadow-[4px_4px_0px_#171717] flex flex-col justify-between group cursor-pointer hover:-translate-y-1 transition-all"
-              >
-                <div className="relative aspect-[4/5] bg-surface-dark overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  
-                  {/* Perspective badge */}
-                  <div className="absolute top-2.5 left-2.5 bg-primary-container text-text-primary font-mono text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider shadow-sm">
-                    {item.perspectiveLabel}
-                  </div>
-
-                  <div className="absolute bottom-2.5 right-2.5 bg-surface-dark/90 text-text-on-dark font-mono text-[10px] px-2 py-0.5 rounded font-bold uppercase">
-                    {item.printMethod}
-                  </div>
-
-                  {/* Hover prompt */}
-                  <div className="absolute inset-0 bg-surface-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-xs uppercase font-bold">
-                    <Eye className="w-4 h-4 text-primary-container" />
-                    <span>INSPECT FULL-RES</span>
-                  </div>
-                </div>
-
-                <div className="p-4 space-y-2 flex-grow flex flex-col justify-between bg-white">
-                  <div>
-                    <h3 className="font-headline text-lg uppercase text-text-primary leading-tight group-hover:text-primary-DEFAULT transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="font-mono text-xs text-text-muted mt-0.5">
-                      {item.apparelType}
-                    </p>
-                    {item.highlight && (
-                      <p className="font-mono text-[11px] text-text-muted line-clamp-1 pt-1">
-                        {item.highlight}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="pt-3 border-t border-border-neutral">
-                    <span className="w-full inline-flex items-center justify-center gap-1.5 bg-surface-paper group-hover:bg-primary-container text-text-primary py-2 px-3 font-mono text-xs uppercase tracking-wider font-bold rounded transition-colors">
-                      <span>INSPECT SAMPLE →</span>
-                    </span>
-                  </div>
-                </div>
+        {/* Header Hero */}
+        <section className="w-full bg-surface-dark text-text-on-dark py-12 md:py-16 border-b-4 border-primary-container relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin space-y-4 relative z-10">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-primary-container inline-block"></span>
+                <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-bold">
+                  AUTHENTIC PHYSICAL WORKSHOP ARCHIVE
+                </span>
               </div>
+              <div className="bg-primary-container text-text-primary px-3 py-1 font-mono text-xs uppercase tracking-wider font-bold shadow-sm">
+                UNEDITED PHOTOGRAPHY
+              </div>
+            </div>
+
+            <div className="max-w-3xl space-y-2">
+              <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-text-on-dark leading-none">
+                OUR WORK.
+              </h1>
+              <p className="font-headline text-2xl sm:text-3xl text-primary-container uppercase tracking-wide">
+                WHAT BROVE HAS PRINTED.
+              </p>
+              <p className="font-body text-base text-surface-container-highest max-w-2xl leading-relaxed">
+                Real garments from our Tirunelveli print laboratory floor. Examine physical DTF ink adhesion, soft hand-feel, mineral wash texture variations, and reinforced neckline seams.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <WorkshopTicker />
+
+        <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin py-12 sm:py-16 space-y-12">
+          
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 border-b border-border-neutral dark:border-surface-dark-secondary pb-6">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-4 py-2 font-mono text-xs uppercase font-bold rounded transition-all ${
+                  filter === cat
+                    ? "bg-surface-dark text-primary-container shadow-[2px_2px_0px_#F2D400]"
+                    : "bg-surface-white dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border border-border-neutral dark:border-surface-dark-secondary hover:border-primary-container"
+                }`}
+              >
+                {cat}
+              </button>
             ))}
           </div>
 
-          {/* Callout Box */}
-          <div className="bg-surface-dark text-text-on-dark border-4 border-primary-container p-8 sm:p-12 rounded flex flex-col md:flex-row items-center justify-between gap-8 shadow-[8px_8px_0px_#171717]">
-            <div className="space-y-2 text-center md:text-left">
-              <span className="font-mono text-xs uppercase text-primary-container tracking-widest font-bold">
+          {/* Asymmetrical Editorial Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredWork.map((sample, idx) => {
+              // Create visual variety: featured large card for first item in desktop
+              const isLarge = idx === 0;
+
+              return (
+                <div
+                  key={sample.id}
+                  onClick={() => setSelectedSample(sample)}
+                  className={`group bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary rounded-lg overflow-hidden cursor-pointer shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] transition-transform hover:-translate-y-1 ${
+                    isLarge ? "md:col-span-2 lg:col-span-2" : ""
+                  }`}
+                >
+                  <div className={`relative bg-black overflow-hidden flex items-center justify-center ${
+                    isLarge ? "aspect-[16/10]" : "aspect-[4/5]"
+                  }`}>
+                    <img
+                      src={sample.image}
+                      alt={sample.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                      <span className="font-mono text-xs text-primary-container font-bold flex items-center gap-1.5">
+                        <Eye className="w-4 h-4" />
+                        <span>CLICK TO INSPECT DETAIL</span>
+                      </span>
+                    </div>
+
+                    <div className="absolute top-3 left-3 bg-surface-dark/90 text-primary-container px-2.5 py-1 font-mono text-[10px] font-bold rounded uppercase">
+                      {sample.perspectiveLabel}
+                    </div>
+
+                    {sample.highlight && (
+                      <div className="absolute bottom-3 right-3 bg-primary-container text-text-primary px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase hidden sm:block">
+                        ✓ VERIFIED BATCH
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-5 space-y-1.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-headline text-xl uppercase tracking-wide text-text-primary dark:text-text-on-dark truncate">
+                        {sample.title}
+                      </h3>
+                      <span className="font-mono text-[10px] text-primary-container bg-surface-dark px-2 py-0.5 rounded shrink-0 uppercase">
+                        {sample.printMethod}
+                      </span>
+                    </div>
+
+                    <p className="font-mono text-xs text-text-muted">
+                      CANVAS: {sample.apparelType}
+                    </p>
+
+                    {sample.description && (
+                      <p className="font-body text-xs text-text-muted leading-relaxed pt-1">
+                        {sample.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Custom Batch Callout */}
+          <div className="bg-surface-dark text-text-on-dark p-8 rounded-lg border-2 border-primary-container flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-1 text-center md:text-left">
+              <span className="font-mono text-xs text-primary-container uppercase font-bold block">
                 PRINT YOUR OWN DESIGN
               </span>
-              <h2 className="font-headline text-3xl sm:text-5xl uppercase text-text-on-dark leading-tight">
-                READY TO BRING YOUR IDEA TO LIFE?
-              </h2>
-              <p className="font-body text-sm text-surface-container-high max-w-xl">
-                Submit your requirement with quantity, sizes, and design. Minimum 5 pieces for your college, company, or club.
+              <h3 className="font-headline text-3xl uppercase">
+                WANT SIMILAR QUALITY FOR YOUR CREW?
+              </h3>
+              <p className="font-body text-xs text-surface-container-highest">
+                Minimum order is just 5 pieces. We review your artwork and match it with the right apparel canvas.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <Link
-                to="/custom-order"
-                className="inline-flex items-center gap-2 bg-primary-container text-text-primary px-8 py-4 font-headline text-xl uppercase tracking-wider hover:bg-white active:scale-95 transition-all shadow-[2px_2px_0px_#ffffff] rounded"
-              >
-                <span>SEND YOUR REQUIREMENT →</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href={`https://wa.me/91${BUSINESS_FACTS.contact.whatsapp}?text=Hello%20BROVE,%20I%20saw%20your%20work%20samples%20and%20want%20to%20discuss%20an%20order.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-surface-dark-secondary text-text-on-dark px-6 py-4 font-mono text-xs uppercase tracking-wider font-bold hover:text-primary-container transition-colors border border-surface-dark-secondary rounded"
-              >
-                <MessageCircle className="w-4 h-4 text-primary-container" />
-                <span>WHATSAPP US</span>
-              </a>
-            </div>
+            <Link
+              to="/custom-order"
+              className="px-6 py-3.5 bg-primary-container text-text-primary font-headline text-sm uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_#FFFFFF] shrink-0"
+            >
+              SEND YOUR REQUIREMENT →
+            </Link>
           </div>
 
         </div>
+
       </div>
     </>
   );

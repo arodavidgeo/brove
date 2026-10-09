@@ -255,8 +255,8 @@ export const OrderConfirmationPage: React.FC = () => {
                 <div className="space-y-space-xs font-mono text-xs">
                   <p className="text-primary-container font-bold uppercase text-[10px] tracking-wider">RECIPIENT</p>
                   <p className="text-text-on-dark text-sm font-headline uppercase">{order?.customer.name || "Ashwin Kumar"}</p>
-                  <p className="text-text-muted">{order?.customer.address || "No. 42, Cross Cut Road, Gandhipuram"}</p>
-                  <p className="text-text-muted">{order?.customer.city || "Coimbatore"}, {order?.customer.state || "Tamil Nadu"} - {order?.customer.pinCode || "641004"}</p>
+                  <p className="text-text-muted">{order?.customer.address || "M90, TNHB colony, Stage 3, KTC Nagar"}</p>
+                  <p className="text-text-muted">{order?.customer.city || "Tirunelveli"}, {order?.customer.state || "Tamil Nadu"} - {order?.customer.pinCode || "627011"}</p>
                   <p className="text-text-muted">WhatsApp / Phone: +91 {order?.customer.phone || "9443941897"}</p>
                 </div>
 

@@ -15,49 +15,49 @@ export default {
     },
     extend: {
       colors: {
-        // Stitch Primary Tokens
-        primary: {
-          DEFAULT: "#6c5e00",
-          container: "#f2d400",
-          fixed: "#ffe33f",
-          "fixed-dim": "#e2c600",
-          foreground: "#171717",
-        },
-        "primary-container": "#f2d400",
-        "primary-fixed": "#ffe33f",
-        "primary-fixed-dim": "#e2c600",
-
-        // Studio Surfaces
-        surface: "#fcf9f0",
-        "surface-paper": "#F5F2E9",
-        "surface-dark": "#171717",
-        "surface-dark-secondary": "#2A2A2A",
-        "surface-white": "#FFFFFF",
-        "surface-container": "#f1eee5",
-        "surface-container-low": "#f6f3ea",
-        "surface-container-high": "#ebe8df",
-        "surface-container-highest": "#e5e2da",
-        "surface-bright": "#fcf9f0",
-        "surface-dim": "#dddad1",
-
-        // Typography colors
-        "text-primary": "#171717",
-        "text-on-dark": "#F5F2E9",
-        "text-muted": "#6F6B62",
-        "on-surface": "#1c1c17",
-        "on-surface-variant": "#4c4732",
-        "border-neutral": "#E5DFD3",
-
-        // Legacy / helper aliases for compatibility
+        // Core BROVE Palette
         brove: {
           yellow: "#F2D400",
           paper: "#F5F2E9",
           charcoal: "#171717",
-          graphite: "#2A2A2A",
-          ink: "#6F6B62",
-          border: "#E5DFD3",
+          graphite: "#292929",
+          white: "#FFFFFF",
+          ink: "#66645F",
+          border: "#D8D3C7",
           highlight: "#FFF6A8",
         },
+
+        // Primary Tokens
+        primary: {
+          DEFAULT: "#F2D400",
+          container: "#F2D400",
+          fixed: "#FFE33F",
+          "fixed-dim": "#E2C600",
+          foreground: "#171717",
+        },
+        "primary-container": "#F2D400",
+        "primary-fixed": "#FFE33F",
+        "primary-fixed-dim": "#E2C600",
+
+        // Studio Surfaces
+        surface: "#F5F2E9",
+        "surface-paper": "#F5F2E9",
+        "surface-dark": "#171717",
+        "surface-dark-secondary": "#292929",
+        "surface-white": "#FFFFFF",
+        "surface-container": "#F1EEE5",
+        "surface-container-low": "#F6F3EA",
+        "surface-container-high": "#EBE8DF",
+        "surface-container-highest": "#E5E2DA",
+        "surface-bright": "#FCF9F0",
+        "surface-dim": "#DDDDA1",
+
+        // Typography colors
+        "text-primary": "#171717",
+        "text-on-dark": "#F5F2E9",
+        "text-muted": "#66645F",
+        "border-neutral": "#D8D3C7",
+
         background: "#F5F2E9",
         foreground: "#171717",
         card: {
@@ -65,16 +65,16 @@ export default {
           foreground: "#171717",
         },
         muted: {
-          DEFAULT: "#ebe8df",
-          foreground: "#6F6B62",
+          DEFAULT: "#EBE8DF",
+          foreground: "#66645F",
         },
-        border: "#E5DFD3",
+        border: "#D8D3C7",
       },
       fontFamily: {
         headline: ['"Anton"', '"Bebas Neue"', 'sans-serif'],
         display: ['"Anton"', '"Bebas Neue"', 'sans-serif'],
-        sans: ['"Manrope"', '"Outfit"', 'sans-serif'],
-        body: ['"Manrope"', '"Outfit"', 'sans-serif'],
+        sans: ['"Outfit"', '"Manrope"', 'sans-serif'],
+        body: ['"Outfit"', '"Manrope"', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
         brush: ['"Permanent Marker"', 'cursive'],
       },

@@ -52,6 +52,8 @@ export interface BusinessContact {
   instagramUrl: string;
   email: string;
   locationLabel: string;
+  locationAddress?: string;
+  locationCity?: string;
   locationUrl: string;
 }
 

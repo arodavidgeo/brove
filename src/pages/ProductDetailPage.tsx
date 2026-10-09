@@ -14,12 +14,14 @@ export const ProductDetailPage: React.FC = () => {
 
   if (!product) {
     return (
-      <div className="py-24 text-center space-y-4 bg-surface-paper min-h-[60vh] flex flex-col justify-center items-center">
-        <h1 className="font-headline text-5xl font-bold uppercase text-text-primary">PRODUCT NOT FOUND</h1>
+      <div className="py-24 text-center space-y-4 bg-surface-paper dark:bg-surface-dark min-h-[60vh] flex flex-col justify-center items-center">
+        <h1 className="font-headline text-5xl font-bold uppercase text-text-primary dark:text-text-on-dark">
+          PRODUCT NOT FOUND
+        </h1>
         <p className="font-body text-text-muted">The requested garment canvas does not exist in our studio catalogue.</p>
         <Link
           to="/wardrobe"
-          className="inline-flex items-center gap-2 bg-primary-container text-text-primary px-6 py-3 font-mono text-sm uppercase tracking-wider font-bold shadow-[2px_2px_0px_#171717] hover:bg-white transition-all"
+          className="inline-flex items-center gap-2 bg-primary-container text-text-primary px-6 py-3 font-headline text-sm uppercase tracking-wider font-bold shadow-[2px_2px_0px_#171717] hover:bg-primary-fixed transition-all"
         >
           Return to Wardrobe
         </Link>
@@ -35,10 +37,10 @@ export const ProductDetailPage: React.FC = () => {
         path={`/product/${product.id}`}
       />
 
-      <div className="flex flex-col w-full bg-surface-paper">
+      <div className="flex flex-col w-full bg-surface-paper dark:bg-surface-dark text-text-primary dark:text-text-on-dark pt-20 transition-colors duration-200">
         {/* Studio Sub-Header Breadcrumb Bar */}
         <section className="w-full bg-surface-dark text-text-on-dark py-4 border-b border-surface-dark-secondary">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between text-xs font-mono">
+          <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between text-xs font-mono">
             <nav className="flex items-center gap-2 text-surface-container-high" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-primary-container transition-colors uppercase">HOME</Link>
               <span>/</span>
@@ -57,13 +59,13 @@ export const ProductDetailPage: React.FC = () => {
         </section>
 
         {/* Main Product Canvas Section */}
-        <section className="py-12 md:py-16 bg-surface-paper border-b border-border-neutral">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <section className="py-12 md:py-16 border-b border-border-neutral dark:border-surface-dark-secondary">
+          <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               
               {/* Left Column: Visual Presentation Canvas */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="relative bg-white border-2 border-text-primary rounded p-8 sm:p-12 flex items-center justify-center min-h-[460px] md:min-h-[540px] shadow-[4px_4px_0px_#171717] overflow-hidden group">
+                <div className="relative bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary rounded-lg p-8 sm:p-12 flex items-center justify-center min-h-[460px] md:min-h-[540px] shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] overflow-hidden group">
                   <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
                     <span className="bg-primary-container text-text-primary px-3 py-1 font-mono text-xs uppercase tracking-widest font-bold">
                       {product.fabricWeight || "HEAVYWEIGHT COTTON"}
@@ -74,7 +76,7 @@ export const ProductDetailPage: React.FC = () => {
                   </div>
 
                   <img
-                    src={product.image}
+                    src={product.referenceImages[0] || product.image}
                     alt={product.name}
                     className="w-full max-h-[460px] object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
                   />
@@ -86,13 +88,13 @@ export const ProductDetailPage: React.FC = () => {
 
                 {/* Real reference work samples if available */}
                 {product.referenceImages && product.referenceImages.length > 0 && (
-                  <div className="bg-white p-4 rounded border-2 border-text-primary shadow-[3px_3px_0px_#171717] space-y-3">
-                    <span className="font-mono text-xs uppercase font-bold text-text-primary block">
+                  <div className="bg-surface-white dark:bg-surface-dark-secondary p-4 rounded-lg border-2 border-text-primary dark:border-surface-dark-secondary shadow-[3px_3px_0px_#171717] dark:shadow-[3px_3px_0px_#F2D400] space-y-3">
+                    <span className="font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark block">
                       ACTUAL BROVE PRINT SAMPLES ON THIS APPAREL:
                     </span>
                     <div className="grid grid-cols-3 gap-2">
                       {product.referenceImages.slice(0, 3).map((img, idx) => (
-                        <div key={idx} className="aspect-square rounded overflow-hidden border border-border-neutral bg-surface-paper">
+                        <div key={idx} className="aspect-square rounded overflow-hidden border border-border-neutral dark:border-surface-dark bg-black">
                           <img
                             src={img}
                             alt={`${product.name} sample ${idx + 1}`}
@@ -115,12 +117,12 @@ export const ProductDetailPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h1 className="font-headline text-5xl md:text-6xl uppercase text-text-primary leading-none tracking-tight">
+                  <h1 className="font-headline text-5xl md:text-6xl uppercase text-text-primary dark:text-text-on-dark leading-none tracking-tight">
                     {product.name}
                   </h1>
 
                   <div className="flex items-baseline gap-4 pt-2">
-                    <span className="font-headline text-5xl text-text-primary">
+                    <span className="font-headline text-5xl text-primary-container bg-surface-dark px-3 py-1 rounded">
                       {formatPrice(product.price, product.pricingType)}
                     </span>
                     <span className="font-mono text-xs uppercase text-text-muted font-bold">
@@ -134,9 +136,9 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
 
                 {/* Color Selection Palette */}
-                <div className="space-y-3 pt-4 border-t border-border-neutral">
+                <div className="space-y-3 pt-4 border-t border-border-neutral dark:border-surface-dark-secondary">
                   <div className="flex items-center justify-between font-mono text-xs">
-                    <span className="font-bold text-text-primary uppercase">SELECT CANVAS SHADE:</span>
+                    <span className="font-bold text-text-primary dark:text-text-on-dark uppercase">SELECT CANVAS SHADE:</span>
                     <span className="text-text-muted font-bold uppercase">
                       {product.availableColors[selectedColorIndex]?.name}
                     </span>
@@ -148,15 +150,15 @@ export const ProductDetailPage: React.FC = () => {
                         onClick={() => setSelectedColorIndex(idx)}
                         className={`flex items-center gap-2 px-3.5 py-2 rounded border-2 transition-all ${
                           selectedColorIndex === idx
-                            ? "border-text-primary bg-white shadow-[2px_2px_0px_#171717]"
-                            : "border-border-neutral bg-white hover:border-text-primary"
+                            ? "border-text-primary dark:border-primary-container bg-surface-white dark:bg-surface-dark shadow-[2px_2px_0px_#171717]"
+                            : "border-border-neutral dark:border-surface-dark-secondary bg-surface-white dark:bg-surface-dark hover:border-text-primary"
                         }`}
                       >
                         <span
                           className="w-4 h-4 rounded-full border border-border-neutral shrink-0"
                           style={{ backgroundColor: color.hex }}
                         />
-                        <span className="text-xs font-mono font-bold uppercase">{color.name}</span>
+                        <span className="text-xs font-mono font-bold uppercase text-text-primary dark:text-text-on-dark">{color.name}</span>
                       </button>
                     ))}
                   </div>
@@ -165,14 +167,14 @@ export const ProductDetailPage: React.FC = () => {
                 {/* Available Sizes Specification */}
                 <div className="space-y-3 pt-2">
                   <div className="flex items-center justify-between font-mono text-xs">
-                    <span className="font-bold text-text-primary uppercase">AVAILABLE SIZES:</span>
+                    <span className="font-bold text-text-primary dark:text-text-on-dark uppercase">AVAILABLE SIZES:</span>
                     <span className="text-text-muted font-bold">MIX SIZES FREELY IN 5-PIECE RUN</span>
                   </div>
                   <div className="flex flex-wrap gap-2 font-mono text-xs font-bold">
                     {product.availableSizes.map((size) => (
                       <span
                         key={size}
-                        className="bg-white border-2 border-text-primary px-3.5 py-1.5 shadow-[1px_1px_0px_#171717]"
+                        className="bg-surface-white dark:bg-surface-dark border-2 border-text-primary dark:border-surface-dark-secondary px-3.5 py-1.5 shadow-[1px_1px_0px_#171717] dark:shadow-[1px_1px_0px_#F2D400]"
                       >
                         {size}
                       </span>
@@ -182,14 +184,14 @@ export const ProductDetailPage: React.FC = () => {
 
                 {/* Technical Specifications */}
                 {product.details && product.details.length > 0 && (
-                  <div className="space-y-2 pt-4 border-t border-border-neutral">
-                    <span className="font-mono text-xs uppercase text-text-primary font-bold block mb-2">
+                  <div className="space-y-2 pt-4 border-t border-border-neutral dark:border-surface-dark-secondary">
+                    <span className="font-mono text-xs uppercase text-text-primary dark:text-text-on-dark font-bold block mb-2">
                       FABRIC SPECIFICATIONS &amp; CUT:
                     </span>
-                    <ul className="space-y-2 font-body text-sm text-text-primary">
+                    <ul className="space-y-2 font-body text-sm text-text-muted">
                       {product.details.map((detail) => (
                         <li key={detail} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-text-primary shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-primary-container shrink-0 mt-0.5" />
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -198,12 +200,12 @@ export const ProductDetailPage: React.FC = () => {
                 )}
 
                 {/* Proof & Logistics Badges */}
-                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border-neutral font-mono text-xs">
-                  <div className="flex items-center gap-2 bg-white p-3 rounded border border-border-neutral font-bold text-text-primary">
-                    <ShieldCheck className="w-4 h-4 text-primary-container shrink-0 fill-primary-container stroke-text-primary" />
+                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border-neutral dark:border-surface-dark-secondary font-mono text-xs">
+                  <div className="flex items-center gap-2 bg-surface-white dark:bg-surface-dark-secondary p-3 rounded border border-border-neutral dark:border-surface-dark font-bold text-text-primary dark:text-text-on-dark">
+                    <ShieldCheck className="w-4 h-4 text-primary-container shrink-0" />
                     <span>STRICT 5-PIECE MOQ</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-white p-3 rounded border border-border-neutral font-bold text-text-primary">
+                  <div className="flex items-center gap-2 bg-surface-white dark:bg-surface-dark-secondary p-3 rounded border border-border-neutral dark:border-surface-dark font-bold text-text-primary dark:text-text-on-dark">
                     <Truck className="w-4 h-4 text-primary-container shrink-0" />
                     <span>ST COURIER 3–7 DAYS</span>
                   </div>
@@ -213,7 +215,7 @@ export const ProductDetailPage: React.FC = () => {
                 <div className="space-y-3 pt-2">
                   <button
                     onClick={() => navigate(`/custom-order?product=${product.id}`)}
-                    className="w-full inline-flex items-center justify-center gap-3 bg-primary-container text-text-primary py-4 px-8 font-headline text-2xl uppercase tracking-wider shadow-[4px_4px_0px_#171717] hover:bg-white active:scale-95 transition-all border-2 border-text-primary"
+                    className="w-full inline-flex items-center justify-center gap-3 bg-primary-container text-text-primary py-4 px-8 font-headline text-xl sm:text-2xl uppercase tracking-wider shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#FFFFFF] hover:bg-primary-fixed active:scale-95 transition-all border-2 border-text-primary"
                   >
                     <span>SEND YOUR REQUIREMENT FOR THIS APPAREL →</span>
                     <ArrowRight className="w-6 h-6" />

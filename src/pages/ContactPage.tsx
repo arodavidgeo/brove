@@ -1,333 +1,349 @@
-import React, { useState } from "react";
+import React from "react";
 import { SEOHead } from "../components/layout/SEOHead";
 import { BUSINESS_FACTS } from "../data/brove-content";
-import { Phone, MessageSquare, Instagram, Mail, MapPin, ArrowUpRight, CheckCircle2, Send } from "lucide-react";
+import { CopyButton } from "../components/ui/CopyButton";
+import { RequirementForm } from "../components/order/RequirementForm";
+import { WorkshopTicker } from "../components/layout/WorkshopTicker";
+import {
+  Phone,
+  MessageCircle,
+  Instagram,
+  Mail,
+  ExternalLink,
+  MapPin,
+  Navigation
+} from "lucide-react";
 
 export const ContactPage: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    apparelType: "Oversized T-Shirt",
-    quantity: "5",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
-
   return (
     <>
       <SEOHead
-        title="CONTACT BROVE : Tiruppur & Tamil Nadu Studio Workshop"
-        description="Direct line to the BROVE print workshop. Call or WhatsApp 9443941897, email ashwinkumar412002@gmail.com, or drop your technical pack for pre-press evaluation."
+        title="CONTACT BROVE : Custom Apparel Studio Communications"
+        description="Connect with the BROVE custom apparel workshop. Phone / WhatsApp: 9443941897, Instagram: @brove_fabrics, Email: ashwinkumar412002@gmail.com. Dispatched across India."
         path="/contact"
       />
 
-      <div className="flex flex-col w-full bg-surface-paper">
-        {/* Dark Charcoal Studio Header */}
-        <section className="w-full bg-surface-dark text-text-on-dark py-12 md:py-16 border-b-4 border-primary-container">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-primary-container"></span>
-              <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-bold">
-                COMMUNICATIONS &amp; ATELIER ACCESS
-              </span>
+      <div className="w-full bg-surface-paper dark:bg-surface-dark text-text-primary dark:text-text-on-dark pt-20 transition-colors duration-200">
+        
+        {/* Header Hero */}
+        <section className="w-full bg-surface-dark text-text-on-dark py-12 md:py-16 border-b-4 border-primary-container relative overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin space-y-4 relative z-10">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-primary-container inline-block"></span>
+                <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-bold">
+                  COMMUNICATIONS &amp; ATELIER ACCESS
+                </span>
+              </div>
+              <div className="bg-primary-container text-text-primary px-3 py-1 font-mono text-xs uppercase tracking-wider font-bold shadow-sm">
+                DIRECT TO WORKSHOP
+              </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-              <div className="max-w-3xl space-y-3">
-                <h1 className="font-headline text-5xl md:text-7xl uppercase text-text-on-dark tracking-tight leading-none">
-                  TALK TO THE WORKSHOP.
-                </h1>
-                <p className="font-body text-base md:text-lg text-surface-container-high max-w-2xl leading-relaxed">
-                  No automated chatbots or generic ticketing queues. You speak directly to our printers and production technicians regarding fabric weights, color proofs, and custom timelines.
+            <div className="max-w-3xl space-y-2">
+              <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-text-on-dark leading-none">
+                TALK TO BROVE.
+              </h1>
+              <p className="font-headline text-2xl sm:text-3xl text-primary-container uppercase tracking-wide">
+                NO AUTOMATED QUEUES. DIRECT HUMAN CRAFTSMEN.
+              </p>
+              <p className="font-body text-base text-surface-container-highest max-w-2xl leading-relaxed">
+                Connect directly with our printing and fabrication workshop regarding fabric weights, color proofs, batch estimates, and courier timelines.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <WorkshopTicker />
+
+        <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin py-12 sm:py-16 space-y-16">
+          
+          {/* 4 Primary Communication Channels with Copy functionality */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* 1. Phone Call */}
+            <div className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary p-6 rounded-lg flex flex-col justify-between shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] space-y-6">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-bold text-text-muted uppercase">VOICE CALL</span>
+                  <CopyButton textToCopy={BUSINESS_FACTS.contact.phone} label="Copy" />
+                </div>
+                <h3 className="font-headline text-2xl uppercase text-text-primary dark:text-text-on-dark">
+                  {BUSINESS_FACTS.contact.phone}
+                </h3>
+                <p className="font-body text-xs text-text-muted leading-relaxed">
+                  Call directly for urgent batch feasibility and sizing consultation.
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-primary-container text-text-primary px-3 py-1 font-mono text-xs uppercase tracking-wider font-bold">
-                  DIRECT WHATSAPP: 9443941897
-                </span>
-                <span className="bg-surface-dark-secondary text-text-on-dark px-3 py-1 font-mono text-xs uppercase tracking-wider">
-                  MON–SAT: 9 AM – 8 PM IST
-                </span>
+              <div className="pt-2">
+                <a
+                  href={`tel:${BUSINESS_FACTS.contact.phone}`}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-surface-dark text-text-on-dark py-2.5 px-4 font-headline text-xs uppercase tracking-wider rounded hover:bg-surface-dark-secondary active:scale-95 transition-all"
+                >
+                  <span>CALL DIRECTLY</span>
+                </a>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* 4 Pillar Direct Channels */}
-        <section className="py-12 bg-surface-paper">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              
-              {/* Phone & WhatsApp */}
-              <div className="bg-white border-2 border-text-primary p-6 rounded flex flex-col justify-between shadow-[4px_4px_0px_#171717] space-y-6">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <span className="font-mono text-xs font-bold text-text-muted uppercase">DIRECT CALL &amp; WHATSAPP</span>
-                  <div className="font-headline text-3xl uppercase text-text-primary">
-                    {BUSINESS_FACTS.contact.phone}
-                  </div>
-                  <p className="font-body text-xs text-text-muted">
-                    Immediate print feasibility audit, fabric consultation, and dispatch coordination.
-                  </p>
+            {/* 2. WhatsApp */}
+            <div className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary p-6 rounded-lg flex flex-col justify-between shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] space-y-6">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
+                  <MessageCircle className="w-6 h-6 fill-current stroke-none" />
                 </div>
-
-                <div className="space-y-2 pt-2">
-                  <a
-                    href={`https://wa.me/91${BUSINESS_FACTS.contact.whatsapp}?text=Hello%20BROVE,%20I%20have%20an%20apparel%20printing%20enquiry`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-text-primary py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-bold shadow-[2px_2px_0px_#171717] hover:bg-white active:scale-95 transition-all border border-text-primary"
-                  >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>OPEN WHATSAPP CHAT</span>
-                  </a>
-                  <a
-                    href={`tel:${BUSINESS_FACTS.contact.phone}`}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-surface-dark text-text-on-dark py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-bold hover:bg-surface-dark-secondary transition-all"
-                  >
-                    <span>CALL DIRECTLY</span>
-                  </a>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-bold text-text-muted uppercase">WHATSAPP CHAT</span>
+                  <CopyButton textToCopy={BUSINESS_FACTS.contact.whatsapp} label="Copy" />
                 </div>
+                <h3 className="font-headline text-2xl uppercase text-text-primary dark:text-text-on-dark">
+                  {BUSINESS_FACTS.contact.whatsapp}
+                </h3>
+                <p className="font-body text-xs text-text-muted leading-relaxed">
+                  Fastest response. Send artwork files, reference photos, or rough concepts.
+                </p>
               </div>
 
-              {/* Instagram */}
-              <div className="bg-white border-2 border-text-primary p-6 rounded flex flex-col justify-between shadow-[4px_4px_0px_#171717] space-y-6">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
-                    <Instagram className="w-6 h-6" />
-                  </div>
-                  <span className="font-mono text-xs font-bold text-text-muted uppercase">OFFICIAL INSTAGRAM</span>
-                  <div className="font-headline text-3xl uppercase text-text-primary">
-                    @{BUSINESS_FACTS.contact.instagram}
-                  </div>
-                  <p className="font-body text-xs text-text-muted">
-                    Daily print floor drops, DTF wash tests, embroidery macro shots, and client apparel runs.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={BUSINESS_FACTS.contact.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-surface-dark text-text-on-dark py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-bold hover:bg-surface-dark-secondary transition-all shadow-[2px_2px_0px_#f2d400]"
-                  >
-                    <span>FOLLOW @BROVE_FABRICS</span>
-                    <ArrowUpRight className="w-4 h-4 text-primary-container" />
-                  </a>
-                </div>
+              <div className="pt-2">
+                <a
+                  href={`https://wa.me/91${BUSINESS_FACTS.contact.whatsapp}?text=${encodeURIComponent(
+                    "Hello BROVE, I'd like to discuss custom apparel printing."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-text-primary py-2.5 px-4 font-headline text-xs uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_#171717]"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current stroke-none" />
+                  <span>OPEN WHATSAPP →</span>
+                </a>
               </div>
-
-              {/* Email Enquiries */}
-              <div className="bg-white border-2 border-text-primary p-6 rounded flex flex-col justify-between shadow-[4px_4px_0px_#171717] space-y-6">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <span className="font-mono text-xs font-bold text-text-muted uppercase">EMAIL TECH PACKS</span>
-                  <div className="font-mono text-sm font-bold text-text-primary break-all">
-                    {BUSINESS_FACTS.contact.email}
-                  </div>
-                  <p className="font-body text-xs text-text-muted">
-                    Send vector files (.ai, .eps, .pdf), high-res PSD artwork, or corporate procurement sheets.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={`mailto:${BUSINESS_FACTS.contact.email}?subject=BROVE%20Custom%20Apparel%20Inquiry`}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-text-primary py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-bold shadow-[2px_2px_0px_#171717] hover:bg-white transition-all border border-text-primary"
-                  >
-                    <span>COMPOSE EMAIL</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Physical Studio Hub */}
-              <div className="bg-white border-2 border-text-primary p-6 rounded flex flex-col justify-between shadow-[4px_4px_0px_#171717] space-y-6">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <span className="font-mono text-xs font-bold text-text-muted uppercase">PRODUCTION LOCATION</span>
-                  <div className="font-headline text-3xl uppercase text-text-primary">
-                    TIRUPPUR STUDIO
-                  </div>
-                  <p className="font-body text-xs text-text-muted">
-                    Located in Tamil Nadu textile manufacturing belt. Direct dispatch all over India via ST Courier.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={BUSINESS_FACTS.contact.locationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-surface-paper text-text-primary py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-bold hover:bg-white transition-all border border-text-primary"
-                  >
-                    <span>LOCATE ATELIER</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
             </div>
-          </div>
-        </section>
 
-        {/* Studio Direct Message / Tech Pack Submission Section */}
-        <section className="py-12 bg-white border-t border-b border-border-neutral">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              
-              <div className="lg:col-span-5 space-y-6">
-                <div className="space-y-2">
-                  <span className="font-mono text-xs uppercase text-text-muted tracking-widest font-bold">
-                    PRE-PRESS BRIEFING
+            {/* 3. Instagram */}
+            <div className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary p-6 rounded-lg flex flex-col justify-between shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] space-y-6">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
+                  <Instagram className="w-6 h-6" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-bold text-text-muted uppercase">INSTAGRAM</span>
+                  <CopyButton textToCopy={`@${BUSINESS_FACTS.contact.instagram}`} label="Copy" />
+                </div>
+                <h3 className="font-headline text-2xl uppercase text-text-primary dark:text-text-on-dark">
+                  @{BUSINESS_FACTS.contact.instagram}
+                </h3>
+                <p className="font-body text-xs text-text-muted leading-relaxed">
+                  Follow new sample drops, live print floor reels, and mineral wash batches.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href={BUSINESS_FACTS.contact.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-1.5 bg-surface-dark text-text-on-dark py-2.5 px-4 font-headline text-xs uppercase tracking-wider rounded hover:bg-surface-dark-secondary active:scale-95 transition-all"
+                >
+                  <span>VIEW INSTAGRAM</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* 4. Email */}
+            <div className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary p-6 rounded-lg flex flex-col justify-between shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#F2D400] space-y-6">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-primary-container text-text-primary flex items-center justify-center rounded border border-text-primary">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-bold text-text-muted uppercase">OFFICIAL EMAIL</span>
+                  <CopyButton textToCopy={BUSINESS_FACTS.contact.email} label="Copy" />
+                </div>
+                <h3 className="font-headline text-lg uppercase text-text-primary dark:text-text-on-dark break-all">
+                  {BUSINESS_FACTS.contact.email}
+                </h3>
+                <p className="font-body text-xs text-text-muted leading-relaxed">
+                  Send high-resolution vector packs (AI, PDF, PSD) or formal purchase orders.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href={`mailto:${BUSINESS_FACTS.contact.email}?subject=Custom%20Apparel%20Requirement`}
+                  className="w-full inline-flex items-center justify-center gap-1.5 bg-surface-dark text-text-on-dark py-2.5 px-4 font-headline text-xs uppercase tracking-wider rounded hover:bg-surface-dark-secondary active:scale-95 transition-all"
+                >
+                  <span>SEND EMAIL</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ==================================================
+              LOCATION: THE BROVE ATELIER & PRINT FLOOR
+              - Official Google Maps link: https://maps.app.goo.gl/AsPHhVM3eJ84twAR8?g_st=aw
+              - Tactile Physical Location & Navigation Hub
+              ================================================== */}
+          <section className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-primary-container rounded-xl p-6 sm:p-10 shadow-[6px_6px_0px_#171717] dark:shadow-[6px_6px_0px_#F2D400] space-y-8 relative overflow-hidden">
+            {/* Top Badge Strip */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-border-neutral dark:border-surface-dark">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-primary-container bg-surface-dark px-2.5 py-0.5 rounded font-bold">
+                    PHYSICAL PRINT FLOOR • OPEN
                   </span>
-                  <h2 className="font-headline text-4xl md:text-5xl uppercase text-text-primary leading-tight">
-                    SUBMIT YOUR CUSTOM PRINT RUN REQUIREMENTS.
-                  </h2>
-                  <p className="font-body text-sm text-text-muted leading-relaxed">
-                    Planning a brand drop, college event apparel, brand uniform, or gym merchandise? Send us your expected numbers and we'll reply with a pre-flight assessment within 2 business hours.
-                  </p>
+                </div>
+                <h2 className="font-headline text-3xl sm:text-5xl uppercase tracking-tight text-text-primary dark:text-text-on-dark pt-2">
+                  THE BROVE ATELIER &amp; STUDIO.
+                </h2>
+                <p className="font-mono text-xs sm:text-sm text-text-muted">
+                  M90, TNHB COLONY, STAGE 3, KTC NAGAR, TIRUNELVELI, TAMIL NADU 627011
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="https://maps.app.goo.gl/AsPHhVM3eJ84twAR8?g_st=aw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded bg-primary-container text-text-primary font-headline text-sm uppercase tracking-wider hover:bg-primary-fixed active:scale-95 transition-all shadow-[3px_3px_0px_#171717] dark:shadow-[3px_3px_0px_#FFFFFF]"
+                >
+                  <Navigation className="w-4 h-4 fill-current stroke-none" />
+                  <span>GET DIRECTIONS IN GOOGLE MAPS ↗</span>
+                </a>
+                <CopyButton textToCopy="M90, TNHB colony, Stage 3, KTC Nagar, Tirunelveli, Tamil Nadu 627011" label="Copy Full Address" />
+              </div>
+            </div>
+
+            {/* Grid: Studio Intel & Interactive Map Frame */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              
+              {/* Left Column: Studio Visiting Guidelines */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <h3 className="font-headline text-xl uppercase tracking-wide text-text-primary dark:text-text-on-dark flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-primary-container" />
+                    <span>WORKSHOP LOCATION SPECS</span>
+                  </h3>
+                  
+                  <div className="space-y-3 font-mono text-xs">
+                    <div className="p-3.5 bg-surface-paper dark:bg-surface-dark rounded border border-border-neutral dark:border-surface-dark space-y-1">
+                      <span className="text-text-muted uppercase block font-bold text-[10px]">PHYSICAL STUDIO ADDRESS</span>
+                      <span className="text-text-primary dark:text-text-on-dark font-bold text-sm block leading-snug">
+                        M90, TNHB colony, Stage 3, KTC Nagar
+                      </span>
+                      <span className="text-text-primary dark:text-text-on-dark font-mono text-xs block">
+                        Tirunelveli, Tamil Nadu 627011
+                      </span>
+                      <p className="text-[11px] text-text-muted pt-1">Direct walk-in studio &amp; physical print floor.</p>
+                    </div>
+
+                    <div className="p-3.5 bg-surface-paper dark:bg-surface-dark rounded border border-border-neutral dark:border-surface-dark">
+                      <span className="text-text-muted uppercase block font-bold text-[10px]">CITY &amp; LOGISTICS HUB</span>
+                      <span className="text-text-primary dark:text-text-on-dark font-bold text-sm">Tirunelveli, Tamil Nadu — India</span>
+                      <p className="text-[11px] text-text-muted pt-1">Direct dispatch corridor via ST Courier across all Indian states (3–7 days).</p>
+                    </div>
+
+                    <div className="p-3.5 bg-surface-paper dark:bg-surface-dark rounded border border-border-neutral dark:border-surface-dark space-y-1">
+                      <span className="text-text-muted uppercase block font-bold text-[10px]">VISITING HOURS &amp; PROOFING</span>
+                      <span className="text-text-primary dark:text-text-on-dark font-bold text-xs">Monday – Saturday: 10:00 AM – 7:30 PM</span>
+                      <p className="text-[11px] text-text-muted">Feel fabric swatches, compare 240 GSM oversized tees, and examine embroidery crests in person.</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="bg-surface-paper p-6 rounded border border-border-neutral space-y-3 font-mono text-xs">
-                  <div className="flex items-center gap-2 text-text-primary font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-primary-container fill-primary-container stroke-text-primary" />
-                    <span>STRICT 5-PIECE MINIMUM ORDER QUANTITY</span>
+                {/* Direct quick action */}
+                <div className="p-4 bg-primary-container/10 border border-primary-container/30 rounded flex items-center justify-between gap-3">
+                  <div className="space-y-0.5">
+                    <span className="font-mono text-[11px] font-bold uppercase text-text-primary dark:text-text-on-dark block">
+                      VISITING IN PERSON?
+                    </span>
+                    <span className="font-body text-xs text-text-muted">
+                      Drop a quick WhatsApp ping before coming for instant sample readiness.
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 text-text-primary font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-primary-container fill-primary-container stroke-text-primary" />
-                    <span>FREE COLOR &amp; SCALING PROOF ON SCREEN</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-text-primary font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-primary-container fill-primary-container stroke-text-primary" />
-                    <span>3–7 DAY PAN-INDIA DISPATCH VIA ST COURIER</span>
-                  </div>
+                  <a
+                    href={`https://wa.me/91${BUSINESS_FACTS.contact.whatsapp}?text=${encodeURIComponent(
+                      "Hello BROVE, I'm planning to visit the studio for fabric inspection."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 px-3 py-2 bg-primary-container text-text-primary font-headline text-xs uppercase tracking-wider rounded hover:bg-primary-fixed transition-colors"
+                  >
+                    PING US →
+                  </a>
                 </div>
               </div>
 
-              {/* Interactive Form */}
-              <div className="lg:col-span-7 bg-surface-paper p-8 rounded-lg border-2 border-text-primary shadow-[6px_6px_0px_#171717]">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 bg-primary-container text-text-primary rounded-full mx-auto flex items-center justify-center font-headline text-3xl border-2 border-text-primary">
-                      ✓
-                    </div>
-                    <h3 className="font-headline text-3xl uppercase text-text-primary">TECH PACK BRIEF RECEIVED</h3>
-                    <p className="font-body text-sm text-text-muted max-w-md mx-auto">
-                      Our workshop technician will review your specifications and contact you directly via WhatsApp at <strong>{formData.phone}</strong>.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="inline-block mt-4 text-xs font-mono font-bold underline uppercase"
-                    >
-                      Submit Another Requirement
-                    </button>
+              {/* Right Column: Creative Industrial Interactive Map Display */}
+              <div className="lg:col-span-7 flex flex-col justify-between rounded-lg overflow-hidden border-2 border-text-primary dark:border-surface-dark bg-surface-dark relative min-h-[380px]">
+                {/* Registration Crosshairs (Streetwear workshop detail) */}
+                <div className="absolute top-2 left-2 font-mono text-[10px] text-primary-container/80 z-20 pointer-events-none bg-surface-dark/80 px-2 py-0.5 rounded">
+                  + TIRUNELVELI PRINT ATELIER
+                </div>
+                <div className="absolute top-2 right-2 font-mono text-[10px] text-primary-container/80 z-20 pointer-events-none bg-surface-dark/80 px-2 py-0.5 rounded">
+                  GPS: 8.7139° N, 77.7567° E +
+                </div>
+
+                {/* Embedded Responsive Interactive Map */}
+                <div className="w-full h-full min-h-[320px] relative">
+                  <iframe
+                    title="BROVE Studio Map"
+                    src="https://maps.google.com/maps?q=M90,+TNHB+colony,+Stage+3,+KTC+Nagar,+Tirunelveli,+Tamil+Nadu+627011&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full min-h-[340px] border-0 filter contrast-125 opacity-90 hover:opacity-100 transition-opacity"
+                    loading="lazy"
+                    allowFullScreen
+                  />
+                  {/* Subtle dark gradient overlay at top/bottom for industrial polish */}
+                  <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-surface-dark/40 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Interactive Map Footer Bar */}
+                <div className="bg-[#171717] border-t-2 border-surface-dark-secondary p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-text-on-dark font-mono text-xs z-10">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary-container shrink-0" />
+                    <span className="truncate">BROVE Studio • M90, TNHB colony, KTC Nagar, Tirunelveli</span>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block font-mono text-xs uppercase font-bold text-text-primary mb-1">
-                          YOUR NAME *
-                        </label>
-                        <input
-                          required
-                          type="text"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="e.g. Ashwin Kumar"
-                          className="w-full bg-white border border-border-neutral p-3 rounded font-body text-sm focus:outline-none focus:border-text-primary"
-                        />
-                      </div>
-                      <div>
-                        <label className="block font-mono text-xs uppercase font-bold text-text-primary mb-1">
-                          WHATSAPP NUMBER *
-                        </label>
-                        <input
-                          required
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="e.g. 9443941897"
-                          className="w-full bg-white border border-border-neutral p-3 rounded font-body text-sm focus:outline-none focus:border-text-primary"
-                        />
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block font-mono text-xs uppercase font-bold text-text-primary mb-1">
-                          APPAREL CANVASES
-                        </label>
-                        <select
-                          value={formData.apparelType}
-                          onChange={(e) => setFormData({ ...formData, apparelType: e.target.value })}
-                          className="w-full bg-white border border-border-neutral p-3 rounded font-body text-sm focus:outline-none focus:border-text-primary"
-                        >
-                          <option>Oversized T-Shirt (₹450)</option>
-                          <option>Regular Fit T-Shirt (₹350)</option>
-                          <option>Acid Wash Oversized (₹500)</option>
-                          <option>Polo T-Shirt (₹360)</option>
-                          <option>Heavyweight Hoodie (₹800)</option>
-                          <option>Full Hand Sweatshirt (₹500)</option>
-                          <option>Custom Mix Batch</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block font-mono text-xs uppercase font-bold text-text-primary mb-1">
-                          ESTIMATED QUANTITY (MIN. 5) *
-                        </label>
-                        <input
-                          required
-                          type="number"
-                          min="5"
-                          value={formData.quantity}
-                          onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                          className="w-full bg-white border border-border-neutral p-3 rounded font-body text-sm focus:outline-none focus:border-text-primary font-mono"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block font-mono text-xs uppercase font-bold text-text-primary mb-1">
-                        DESIGN NOTES &amp; PLACEMENT DETAILS
-                      </label>
-                      <textarea
-                        rows={3}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Mention print size (A3 back, chest logo), colors, fabric color, or timeline requirements..."
-                        className="w-full bg-white border border-border-neutral p-3 rounded font-body text-sm focus:outline-none focus:border-text-primary"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-text-primary py-3.5 px-6 font-mono text-sm uppercase tracking-wider font-bold shadow-[2px_2px_0px_#171717] hover:bg-white active:scale-95 transition-all border border-text-primary"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>SUBMIT TO BROVE PRINTERS</span>
-                    </button>
-                  </form>
-                )}
+                  <a
+                    href="https://maps.app.goo.gl/AsPHhVM3eJ84twAR8?g_st=aw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-primary-container hover:text-primary-fixed uppercase tracking-wider font-bold transition-colors"
+                  >
+                    <span>OPEN FULLSCREEN MAP</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
 
             </div>
+          </section>
+
+          {/* Integrated Requirement Form */}
+          <div className="space-y-6 pt-6">
+            <div className="text-center max-w-2xl mx-auto space-y-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-text-muted font-bold block">
+                DIRECT SUBMISSION
+              </span>
+              <h2 className="font-headline text-3xl sm:text-5xl uppercase tracking-tight text-text-primary dark:text-text-on-dark">
+                SEND YOUR REQUIREMENTS
+              </h2>
+              <p className="font-body text-sm text-text-muted leading-relaxed">
+                Fill in your apparel canvas, quantity, and design requirements below.
+              </p>
+            </div>
+
+            <RequirementForm embedded={true} />
           </div>
-        </section>
+
+        </div>
+
       </div>
     </>
   );

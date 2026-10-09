@@ -21,10 +21,10 @@ export const CheckoutPage: React.FC = () => {
       name: "Ashwin Kumar",
       phone: "9443941897",
       email: "ashwinkumar412002@gmail.com",
-      address: "No. 42, Cross Cut Road, Gandhipuram",
-      city: "Coimbatore",
+      address: "M90, TNHB colony, Stage 3, KTC Nagar",
+      city: "Tirunelveli",
       state: "Tamil Nadu",
-      pinCode: "641004",
+      pinCode: "627011",
       country: "India",
     };
   });
@@ -225,7 +225,7 @@ export const CheckoutPage: React.FC = () => {
                       type="text"
                       value={form.city}
                       onChange={(e) => setForm({ ...form, city: e.target.value })}
-                      placeholder="Coimbatore"
+                      placeholder="Tirunelveli"
                       className="w-full h-11 px-space-sm bg-surface-paper text-text-primary font-mono text-xs rounded focus:outline-none focus:bg-surface-white border border-border-neutral"
                     />
                     {errors.city && <span className="text-red-600 text-[10px] font-mono">{errors.city}</span>}

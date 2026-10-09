@@ -12,10 +12,10 @@ export const PaymentPage: React.FC = () => {
     name: "Ashwin Kumar",
     phone: "9443941897",
     email: "ashwinkumar412002@gmail.com",
-    address: "No. 42, Cross Cut Road, Gandhipuram",
-    city: "Coimbatore",
+    address: "M90, TNHB colony, Stage 3, KTC Nagar",
+    city: "Tirunelveli",
     state: "Tamil Nadu",
-    pinCode: "641004",
+    pinCode: "627011",
     country: "India",
   });
 

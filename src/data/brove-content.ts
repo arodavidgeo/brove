@@ -22,8 +22,10 @@ export const BUSINESS_FACTS = {
     instagram: "brove_fabrics",
     instagramUrl: "https://instagram.com/brove_fabrics",
     email: "ashwinkumar412002@gmail.com",
-    locationLabel: "BROVE Studio / Official Location",
-    locationUrl: "https://maps.google.com/?q=BROVE+Fabrics", // TODO: Owner to supply exact Google Maps URL link
+    locationLabel: "BROVE Studio / Official Print Floor",
+    locationAddress: "M90, TNHB colony, Stage 3, KTC Nagar, Tirunelveli, Tamil Nadu 627011",
+    locationCity: "Tirunelveli, Tamil Nadu 627011",
+    locationUrl: "https://maps.app.goo.gl/AsPHhVM3eJ84twAR8?g_st=aw",
   } as BusinessContact,
 
   delivery: {

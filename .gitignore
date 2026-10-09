@@ -3,12 +3,14 @@ node_modules/
 .pnp
 .pnp.js
 
-# Production build outputs
+# Production & Build Outputs
 dist/
 dist-ssr/
 build/
+.vite/
+*.tsbuildinfo
 
-# Environment files
+# Environment & Local Configs
 .env
 .env.local
 .env.development.local
@@ -16,8 +18,8 @@ build/
 .env.production.local
 !.env.example
 
-# Logs
-logs
+# Logs & Diagnostics
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -25,7 +27,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Editor & OS files
+# Editor, OS & System Files
 .vscode/
 .idea/
 *.suo
@@ -34,14 +36,44 @@ lerna-debug.log*
 *.sln
 *.sw?
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
 desktop.ini
 
-# Raw asset dumps, backups, and temporary scratch files
+# Agent / Assistant & IDE Metadata
+.agent/
+.agents/
+.gemini/
+.gsd/
+scratch/
+.tempmediaStorage/
+.system_generated/
+
+# Testing & Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Temporary, Cache & Backup Files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Raw Asset Dumps, Staging Folders & Unprocessed Design Exports
 *.zip
+*.tar.gz
 stitch_extracted/
+reference dress/
 reference\ dress/
+public/reference dress/
 public/reference\ dress/
+Oversized Acid Wash T-shirt real sample/
 Oversized\ Acid\ Wash\ T-shirt\ real\ sample/
+Oversized T-shirt real sample/
 Oversized\ T-shirt\ real\ sample/
+scroll animation for brove.txt
 scroll\ animation\ for\ brove.txt

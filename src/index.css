@@ -4,18 +4,31 @@
 
 @layer base {
   :root {
-    --background: 44 33% 94%; /* #F5F2E9 */
-    --foreground: 0 0% 9%; /* #171717 */
-    --primary: 53 100% 47%; /* #F2D400 */
+    --background: 220 68% 14%; /* #0B1D3A Deep Navy Base */
+    --foreground: 44 33% 94%; /* #F5F2E9 Studio Paper */
+    --primary: 53 100% 47%; /* #F2D400 BROVE Yellow */
     --primary-foreground: 0 0% 9%;
-    --border: 40 18% 81%; /* #D8D3C7 */
+    --border: 220 30% 25%; /* Navy Border */
+  }
+
+  .dark {
+    --background: 220 68% 14%; /* #0B1D3A Deep Navy Base */
+    --foreground: 44 33% 94%; /* #F5F2E9 Studio Paper */
+    --border: 220 30% 25%;
   }
 
   body {
-    background-color: #F5F2E9;
-    color: #171717;
-    font-family: 'Manrope', 'Outfit', sans-serif;
+    background-color: #0B1D3A;
+    color: #F5F2E9;
+    font-family: 'Outfit', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .dark body,
+  html.dark body {
+    background-color: #0B1D3A;
+    color: #F5F2E9;
   }
 
   /* Accessible focus indicators */
@@ -24,9 +37,70 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid #171717;
+    outline: 2px solid #F2D400;
     outline-offset: 2px;
   }
+}
+
+/* Allow continuous reference SVG background to be revealed across all pages and page sections */
+main,
+#main-content,
+main > div,
+main > *,
+#main-content > div,
+#main-content > *,
+main section.bg-surface-dark,
+main section.bg-surface-paper,
+main section.bg-brove-paper,
+#main-content section.bg-surface-dark,
+#main-content section.bg-surface-paper,
+#main-content section.bg-brove-paper {
+  background-color: transparent !important;
+}
+
+/* Workshop Marquee Ticker - Guaranteed Vibrant Yellow Industrial Banner across all pages */
+.workshop-ticker,
+#main-content .workshop-ticker,
+#main-content > .workshop-ticker,
+main .workshop-ticker,
+main > .workshop-ticker,
+div.workshop-ticker,
+[data-component="workshop-ticker"],
+html.dark .workshop-ticker,
+.dark .workshop-ticker {
+  background-color: #F2D400 !important;
+  background: #F2D400 !important;
+  color: #171717 !important;
+  border-top: 2px solid #171717 !important;
+  border-bottom: 2px solid #171717 !important;
+}
+
+.workshop-ticker span,
+.workshop-ticker div,
+[data-component="workshop-ticker"] span,
+[data-component="workshop-ticker"] div,
+html.dark .workshop-ticker span,
+.dark .workshop-ticker span {
+  color: #171717 !important;
+}
+
+/* Ensure text directly on the deep navy canvas is crisp and legible */
+.text-text-primary {
+  color: #F5F2E9;
+}
+
+/* Maintain crisp dark typography for white cards, inputs, and primary yellow banners */
+.bg-surface-white .text-text-primary,
+.bg-surface-white h1,
+.bg-surface-white h2,
+.bg-surface-white h3,
+.bg-surface-white p,
+.bg-primary-container .text-text-primary,
+.bg-primary-container h1,
+.bg-primary-container h2,
+.bg-primary-container h3,
+.bg-primary-container span {
+  color: #171717;
 }
 
 /* Custom editorial typography & industrial accents */
@@ -84,3 +158,46 @@
   animation-play-state: paused;
 }
 
+/* Custom Film Grain Texture */
+.bg-film-grain {
+  background-image: radial-gradient(rgba(23, 23, 23, 0.08) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.dark .bg-film-grain {
+  background-image: radial-gradient(rgba(245, 242, 233, 0.06) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Print Stylesheet */
+@media print {
+  header,
+  footer,
+  .no-print,
+  .floating-contact,
+  .back-to-top,
+  .cookie-banner,
+  .workshop-ticker,
+  button,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .print-clean {
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: #000000 !important;
+  }
+}
