@@ -1,16 +1,33 @@
+# ==============================================================================
+# BROVE Custom Apparel Platform - Git Ignore Rules
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
 # Dependencies
+# ------------------------------------------------------------------------------
 node_modules/
 .pnp
 .pnp.js
+.pnp.*
 
+# ------------------------------------------------------------------------------
 # Production & Build Outputs
+# ------------------------------------------------------------------------------
 dist/
 dist-ssr/
 build/
+out/
 .vite/
 *.tsbuildinfo
+.turbo/
+.cache/
+.parcel-cache/
+.eslintcache/
+.stylelintcache/
 
-# Environment & Local Configs
+# ------------------------------------------------------------------------------
+# Environment Variables & Secrets
+# ------------------------------------------------------------------------------
 .env
 .env.local
 .env.development.local
@@ -18,7 +35,9 @@ build/
 .env.production.local
 !.env.example
 
-# Logs & Diagnostics
+# ------------------------------------------------------------------------------
+# Logs & Process Diagnostics
+# ------------------------------------------------------------------------------
 logs/
 *.log
 npm-debug.log*
@@ -27,7 +46,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Editor, OS & System Files
+# ------------------------------------------------------------------------------
+# Editor, IDE & Workspace Settings
+# ------------------------------------------------------------------------------
 .vscode/
 .idea/
 *.suo
@@ -35,37 +56,64 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
+*~
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------------------------------------------------------
+# OS & File System Artifacts
+# ------------------------------------------------------------------------------
 .DS_Store
 .DS_Store?
 ._*
-Thumbs.db
+[Tt]humbs.db
 ehthumbs.db
-desktop.ini
+[Dd]esktop.ini
+$RECYCLE.BIN/
 
-# Agent / Assistant & IDE Metadata
+# ------------------------------------------------------------------------------
+# Assistant, Agent & Local Development Artifacts
+# ------------------------------------------------------------------------------
 .agent/
 .agents/
 .gemini/
 .gsd/
+.cursor/
+.claude/
+.windsurf/
 scratch/
 .tempmediaStorage/
 .system_generated/
 
-# Testing & Coverage
+# ------------------------------------------------------------------------------
+# Test & Coverage Outputs
+# ------------------------------------------------------------------------------
 coverage/
 *.lcov
 .nyc_output/
 
-# Temporary, Cache & Backup Files
+# ------------------------------------------------------------------------------
+# Temporary, Staging & Backup Files
+# ------------------------------------------------------------------------------
+tmp/
+temp/
 *.tmp
 *.temp
 *.bak
-*.swp
-*~
+*.orig
 
-# Raw Asset Dumps, Staging Folders & Unprocessed Design Exports
+# ------------------------------------------------------------------------------
+# Raw Asset Dumps, Archives & Staging Folders
+# ------------------------------------------------------------------------------
 *.zip
+*.tar
 *.tar.gz
+*.tgz
+*.rar
+*.7z
 stitch_extracted/
 reference dress/
 reference\ dress/
@@ -77,3 +125,9 @@ Oversized T-shirt real sample/
 Oversized\ T-shirt\ real\ sample/
 scroll animation for brove.txt
 scroll\ animation\ for\ brove.txt
+
+# ------------------------------------------------------------------------------
+# Hosting & Deployment Previews
+# ------------------------------------------------------------------------------
+.vercel/
+.netlify/
