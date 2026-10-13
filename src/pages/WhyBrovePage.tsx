@@ -36,26 +36,26 @@ export const WhyBrovePage: React.FC = () => {
         path="/why-brove"
       />
 
-      <div className="w-full bg-surface-paper dark:bg-surface-dark text-text-primary dark:text-text-on-dark pt-20 transition-colors duration-200">
+      <div className="w-full bg-transparent text-[#2A2A24] pt-20 transition-colors duration-200">
         
         {/* Header Hero */}
-        <section className="w-full bg-surface-dark text-text-on-dark py-12 md:py-16 border-b-4 border-primary-container relative overflow-hidden">
+        <section className="w-full bg-transparent text-[#2A2A24] py-12 md:py-16 border-b-2 border-[#E6E2D3] relative overflow-hidden">
           <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin space-y-4 relative z-10">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 bg-primary-container inline-block"></span>
-              <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-bold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#5A680C] font-bold">
                 BRAND PHILOSOPHY &amp; CRAFTSMANSHIP
               </span>
             </div>
 
             <div className="max-w-3xl space-y-2">
-              <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-text-on-dark leading-none">
+              <h1 className="font-headline text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-[#2A2A24] leading-none">
                 WHY BROVE?
               </h1>
-              <p className="font-headline text-2xl sm:text-3xl text-primary-container uppercase tracking-wide">
+              <p className="font-headline text-2xl sm:text-3xl text-[#5A680C] uppercase tracking-wide">
                 CUSTOM APPAREL MADE PERSONAL.
               </p>
-              <p className="font-body text-base text-surface-container-highest max-w-2xl leading-relaxed">
+              <p className="font-body text-base text-[#66645A] max-w-2xl leading-relaxed">
                 Because custom clothing should feel like your identity. From a single creative idea to team wear for colleges and businesses, we turn concepts into tactile garments that speak your style.
               </p>
             </div>
@@ -70,15 +70,15 @@ export const WhyBrovePage: React.FC = () => {
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="bg-surface-white dark:bg-surface-dark-secondary border-2 border-text-primary dark:border-surface-dark-secondary p-8 rounded-lg space-y-4 shadow-[6px_6px_0px_#171717] dark:shadow-[6px_6px_0px_#F2D400]"
+                className="bg-[#FAF8F0] border-2 border-[#E6E2D3] p-8 rounded-lg space-y-4 shadow-[0_4px_20px_rgba(42,42,36,0.04)]"
               >
-                <div className="w-12 h-12 bg-surface-dark rounded flex items-center justify-center border border-surface-dark-secondary">
+                <div className="w-12 h-12 bg-[#FFFFFF] rounded flex items-center justify-center border border-[#E6E2D3]">
                   {pillar.icon}
                 </div>
-                <h2 className="font-headline text-2xl sm:text-3xl uppercase tracking-tight text-text-primary dark:text-text-on-dark">
+                <h2 className="font-headline text-2xl sm:text-3xl uppercase tracking-tight text-[#2A2A24]">
                   {pillar.title}
                 </h2>
-                <p className="text-sm font-body text-text-muted leading-relaxed">
+                <p className="text-sm font-body text-[#66645A] leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -86,23 +86,23 @@ export const WhyBrovePage: React.FC = () => {
           </div>
 
           {/* Banner CTA */}
-          <div className="bg-primary-container text-text-primary border-4 border-text-primary dark:border-surface-dark-secondary p-8 sm:p-12 rounded-lg text-center space-y-6 shadow-[8px_8px_0px_#171717] dark:shadow-[8px_8px_0px_#FFFFFF]">
-            <h2 className="font-headline text-4xl sm:text-6xl uppercase tracking-tight">
+          <div className="bg-primary-container text-text-primary border-2 border-[#E6E2D3] p-8 sm:p-12 rounded-lg text-center space-y-6 shadow-[0_6px_24px_rgba(42,42,36,0.06)]">
+            <h2 className="font-headline text-4xl sm:text-6xl uppercase tracking-tight text-[#2A2A24]">
               MADE FOR EVERYONE.
             </h2>
-            <p className="text-base max-w-xl mx-auto font-body leading-relaxed">
+            <p className="text-base max-w-xl mx-auto font-body text-[#2A2A24] leading-relaxed">
               Colleges. Companies. Teams. Events. Businesses. Friends. Individuals. If you have an idea, we make it wearable.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <Link
                 to="/custom-order"
-                className="inline-flex items-center gap-2 bg-surface-dark text-text-on-dark px-8 py-4 font-headline text-lg uppercase tracking-wider rounded hover:bg-surface-dark-secondary transition-all shadow-[4px_4px_0px_#FFFFFF]"
+                className="inline-flex items-center gap-2 bg-[#FFFFFF] text-[#2A2A24] px-8 py-4 font-headline text-lg uppercase tracking-wider rounded border border-[#E6E2D3] hover:bg-[#FAF8F0] transition-all shadow-[2px_2px_0px_rgba(42,42,36,0.1)]"
               >
                 <span>SEND YOUR REQUIREMENT →</span>
               </Link>
               <Link
                 to="/wardrobe"
-                className="inline-flex items-center gap-2 bg-surface-white text-text-primary px-6 py-4 font-headline text-base uppercase tracking-wider rounded border border-text-primary hover:bg-surface-paper transition-all"
+                className="inline-flex items-center gap-2 bg-[#FAF8F0] text-[#2A2A24] px-6 py-4 font-headline text-base uppercase tracking-wider rounded border border-[#E6E2D3] hover:bg-[#FFFFFF] transition-all"
               >
                 <span>EXPLORE WARDROBE</span>
               </Link>

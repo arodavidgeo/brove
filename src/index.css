@@ -4,31 +4,37 @@
 
 @layer base {
   :root {
-    --background: 220 68% 14%; /* #0B1D3A Deep Navy Base */
-    --foreground: 44 33% 94%; /* #F5F2E9 Studio Paper */
-    --primary: 53 100% 47%; /* #F2D400 BROVE Yellow */
-    --primary-foreground: 0 0% 9%;
-    --border: 220 30% 25%; /* Navy Border */
+    /* Three-Font System Variables */
+    --font-display: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
+    --font-condensed: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Arial Narrow', sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --background: 43 35% 93%; /* #F4F1E6 Warm Cream Base */
+    --foreground: 60 8% 15%; /* #2A2A24 Deep Charcoal */
+    --primary: 68 70% 51%; /* #C5D92D Brand Lime */
+    --primary-foreground: 60 8% 15%;
+    --border: 44 24% 86%; /* #E6E2D3 Soft Warm Grey-Beige Border */
   }
 
-  .dark {
-    --background: 220 68% 14%; /* #0B1D3A Deep Navy Base */
-    --foreground: 44 33% 94%; /* #F5F2E9 Studio Paper */
-    --border: 220 30% 25%;
+  .dark,
+  html.dark {
+    --background: 60 6% 8%; /* #141412 Dark Studio Base */
+    --foreground: 43 35% 93%; /* #F4F1E6 Warm Paper Text */
+    --border: 60 4% 20%; /* #34342E Dark Border */
   }
 
   body {
-    background-color: #0B1D3A;
-    color: #F5F2E9;
-    font-family: 'Outfit', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F4F1E6;
+    color: #2A2A24;
+    font-family: var(--font-body);
     overflow-x: hidden;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   .dark body,
   html.dark body {
-    background-color: #0B1D3A;
-    color: #F5F2E9;
+    background-color: #141412;
+    color: #F4F1E6;
   }
 
   /* Accessible focus indicators */
@@ -37,28 +43,49 @@
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid #F2D400;
+    outline: 2px solid #C5D92D;
     outline-offset: 2px;
+  }
+
+  /* Warm Studio Glass & Animations */
+  .backdrop-glass {
+    background: rgba(244, 241, 230, 0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .backdrop-glass-yellow {
+    background: rgba(197, 217, 45, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  @keyframes hangerSwing {
+    0% { transform: rotate(-5.5deg); }
+    100% { transform: rotate(5.5deg); }
+  }
+
+  .animate-hanger-swing {
+    transform-origin: top center;
+    animation: hangerSwing 5s ease-in-out infinite alternate;
   }
 }
 
-/* Allow continuous reference SVG background to be revealed across all pages and page sections */
+/* Allow continuous warm ivory SVG background to be revealed across all pages and page sections */
 main,
 #main-content,
 main > div,
 main > *,
 #main-content > div,
 #main-content > *,
-main section.bg-surface-dark,
 main section.bg-surface-paper,
 main section.bg-brove-paper,
-#main-content section.bg-surface-dark,
 #main-content section.bg-surface-paper,
 #main-content section.bg-brove-paper {
   background-color: transparent !important;
 }
 
-/* Workshop Marquee Ticker - Guaranteed Vibrant Yellow Industrial Banner across all pages */
+/* Workshop Marquee Ticker - Vibrant Lime/Yellow Industrial Banner across all pages */
 .workshop-ticker,
 #main-content .workshop-ticker,
 #main-content > .workshop-ticker,
@@ -70,9 +97,9 @@ html.dark .workshop-ticker,
 .dark .workshop-ticker {
   background-color: #F2D400 !important;
   background: #F2D400 !important;
-  color: #171717 !important;
-  border-top: 2px solid #171717 !important;
-  border-bottom: 2px solid #171717 !important;
+  color: #2A2A24 !important;
+  border-top: 2px solid #2A2A24 !important;
+  border-bottom: 2px solid #2A2A24 !important;
 }
 
 .workshop-ticker span,
@@ -81,12 +108,7 @@ html.dark .workshop-ticker,
 [data-component="workshop-ticker"] div,
 html.dark .workshop-ticker span,
 .dark .workshop-ticker span {
-  color: #171717 !important;
-}
-
-/* Ensure text directly on the deep navy canvas is crisp and legible */
-.text-text-primary {
-  color: #F5F2E9;
+  color: #2A2A24 !important;
 }
 
 /* Maintain crisp dark typography for white cards, inputs, and primary yellow banners */
@@ -100,26 +122,223 @@ html.dark .workshop-ticker span,
 .bg-primary-container h2,
 .bg-primary-container h3,
 .bg-primary-container span {
-  color: #171717;
+  color: #2A2A24;
 }
 
-/* Custom editorial typography & industrial accents */
+/* ========================================================
+   TASK 1: THREE-FONT SYSTEM ASSIGNMENTS
+   A. Bodoni Moda: hero heading, major section headings, brand-story headings, large contact statements
+   B. Barlow Condensed: nav labels, compact section labels/eyebrows, product names, process-step labels and numbers, short uppercase headings
+   C. DM Sans: paragraphs, descriptions, prices, buttons/CTAs, form labels/inputs, footer links, utility text
+   ======================================================== */
+
+/* General default text: DM Sans */
+p,
+body,
+span,
+input,
+select,
+textarea,
+label,
+button,
+.btn,
+.font-body,
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* A. Bodoni Moda (weights 600, 700): major headings */
+h1,
+h2,
+.font-display,
+.heading-display,
 .font-headline {
-  font-family: 'Anton', 'Bebas Neue', sans-serif;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 14, 'wght' 700;
+  color: #181816;
 }
 
-.font-display {
-  font-family: 'Anton', 'Bebas Neue', sans-serif;
-  letter-spacing: 0.02em;
+.dark h1,
+.dark h2,
+.dark .font-display,
+.dark .heading-display,
+.dark .font-headline {
+  color: #F4F1E6;
+}
+
+/* B. Barlow Condensed (weights 500, 600, 700): nav, compact labels, product names, process steps */
+nav,
+nav a,
+nav span,
+header nav a,
+.font-condensed,
+.font-mono,
+h3,
+h4,
+.product-name,
+.process-step,
+[class*="tracking-widest"] {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+}
+
+header nav a {
+  color: #181816;
+}
+
+.dark header nav a {
+  color: #F4F1E6;
+}
+
+/* Subtitle paragraphs that have font-headline become Barlow Condensed */
+p.font-headline {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+}
+
+/* C. DM Sans: buttons/CTAs, prices, footer links */
+button,
+a[class*="bg-primary-container"],
+button[class*="bg-primary-container"],
+a[class*="btn"],
+button[class*="btn"],
+footer a,
+footer span,
+footer p,
+[class*="price"],
+.font-body,
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* Component class helpers mapping to tokens */
+h3.font-headline,
+h4.font-headline {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+}
+
+button.font-headline,
+a.font-headline {
+  font-family: var(--font-body);
+}
+
+span.font-headline[class*="text-2xl"],
+span.font-headline[class*="text-3xl"],
+span.font-headline[class*="text-4xl"],
+span.font-headline[class*="text-5xl"] {
+  font-family: var(--font-body);
+}
+
+[class*="process"] span.font-headline {
+  font-family: var(--font-condensed);
+  font-weight: 700;
 }
 
 .font-mono {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-condensed);
 }
 
-.font-brush {
-  font-family: 'Permanent Marker', cursive;
+/* ========================================================
+   TASK 2: DARK THEME STYLING OVERRIDES
+   When .dark is present on <html>:
+   Switch surfaces, cards, borders, text, navbar and footer.
+   ======================================================== */
+
+.dark .bg-surface-white,
+.dark .bg-\[\#FFFFFF\] {
+  background-color: #1E1E1B !important;
+  color: #F4F1E6;
+}
+
+.dark .bg-surface-paper,
+.dark .bg-surface-dark,
+.dark .bg-\[\#FAF8F0\] {
+  background-color: #262622 !important;
+  color: #F4F1E6;
+}
+
+.dark .bg-surface-container,
+.dark .bg-surface-container-low,
+.dark .bg-surface-container-high {
+  background-color: #21211E !important;
+  color: #F4F1E6;
+}
+
+.dark .border-\[\#E6E2D3\],
+.dark .border-border-neutral {
+  border-color: #383832 !important;
+}
+
+.dark .text-\[\#2A2A24\],
+.dark .text-text-primary {
+  color: #F4F1E6 !important;
+}
+
+.dark .text-\[\#66645A\],
+.dark .text-\[\#55544D\],
+.dark .text-text-muted {
+  color: #A8A69D !important;
+}
+
+/* Header in dark mode: translucent dark blur */
+.dark header,
+.dark header .bg-\[\#F4F1E6\]\/92 {
+  background-color: rgba(20, 20, 18, 0.92) !important;
+  border-color: #383832 !important;
+}
+
+.dark .backdrop-glass {
+  background: rgba(20, 20, 18, 0.90) !important;
+}
+
+/* Mobile Drawer in dark mode */
+.dark .fixed.inset-0.bg-\[\#F4F1E6\] {
+  background-color: #181815 !important;
+}
+
+/* Footer in dark mode */
+.dark footer,
+.dark footer.bg-\[\#FAF8F0\] {
+  background-color: #161613 !important;
+  border-color: #383832 !important;
+  color: #F4F1E6 !important;
+}
+
+/* Modals & Dropdowns in dark mode */
+.dark .bg-\[\#FAF8F0\]\/95,
+.dark .bg-\[\#FAF8F0\]\/98,
+.dark [role="dialog"] {
+  background-color: #1C1C19 !important;
+  color: #F4F1E6 !important;
+}
+
+/* Form inputs in dark mode */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark textarea,
+.dark select {
+  background-color: #242420 !important;
+  color: #F4F1E6 !important;
+  border-color: #383832 !important;
+}
+
+/* Keep Brand Lime Buttons & Marquee Ticker legible with dark charcoal text */
+.dark .bg-primary-container,
+.dark .bg-primary-container *,
+.dark button.bg-primary-container,
+.dark a.bg-primary-container,
+.dark button.bg-primary-fixed,
+.dark a.bg-primary-fixed,
+.dark .workshop-ticker,
+.dark .workshop-ticker span,
+.dark .workshop-ticker div {
+  color: #2A2A24 !important;
+}
+
+.dark .bg-primary-container {
+  background-color: #C5D92D !important;
 }
 
 /* Material symbol styling helper */
@@ -160,12 +379,12 @@ html.dark .workshop-ticker span,
 
 /* Custom Film Grain Texture */
 .bg-film-grain {
-  background-image: radial-gradient(rgba(23, 23, 23, 0.08) 1px, transparent 0);
+  background-image: radial-gradient(rgba(42, 42, 36, 0.03) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
 .dark .bg-film-grain {
-  background-image: radial-gradient(rgba(245, 242, 233, 0.06) 1px, transparent 0);
+  background-image: radial-gradient(rgba(42, 42, 36, 0.03) 1px, transparent 0);
   background-size: 20px 20px;
 }
 

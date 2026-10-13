@@ -70,45 +70,45 @@ export const CheckoutPage: React.FC = () => {
         path="/checkout"
       />
 
-      <div className="w-full bg-surface-paper min-h-screen pt-20">
+      <div className="w-full bg-transparent min-h-screen pt-20 text-[#2A2A24]">
         <div className="w-full max-w-[1400px] mx-auto px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl">
           
           {/* Breadcrumb & Stepper Bar */}
           <div className="flex flex-col gap-space-md mb-space-lg">
-            <div className="flex items-center gap-space-xs text-text-muted font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-space-xs text-[#66645A] font-mono text-xs uppercase tracking-wider">
               <Link to="/cart" className="hover:text-text-primary transition-colors flex items-center gap-1">
                 <span className="material-symbols-outlined text-[16px]">arrow_back</span>
                 Return to Cart Review
               </Link>
               <span>/</span>
-              <span className="text-text-primary font-bold">Checkout Step 02</span>
+              <span className="text-[#2A2A24] font-bold">Checkout Step 02</span>
             </div>
 
             {/* Stepper Card */}
-            <div className="bg-surface-white p-space-md rounded shadow-sm w-full border border-border-neutral">
+            <div className="bg-[#FAF8F0] p-space-md rounded shadow-xs w-full border border-[#E6E2D3]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-space-md items-center">
                 {/* Step 1 */}
                 <div className="flex items-center gap-space-xs">
-                  <div className="w-6 h-6 rounded-full bg-surface-dark text-text-on-dark flex items-center justify-center shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[14px]">check</span>
                   </div>
                   <div className="min-w-0">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Step 01</p>
-                    <p className="font-mono text-xs uppercase text-text-primary truncate font-bold">Cart & Batches</p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-[#66645A]">Step 01</p>
+                    <p className="font-mono text-xs uppercase text-[#2A2A24] truncate font-bold">Cart & Batches</p>
                   </div>
                 </div>
 
                 {/* Step 2 (Active) */}
                 <div className="flex items-center gap-space-xs">
-                  <div className="w-6 h-6 rounded-full bg-primary-container text-text-primary font-bold flex items-center justify-center shrink-0 shadow-[1px_1px_0px_#171717]">
+                  <div className="w-6 h-6 rounded-full bg-primary-container text-text-primary font-bold flex items-center justify-center shrink-0 shadow-xs">
                     <span className="font-mono text-xs">02</span>
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1">
                       <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
-                      <p className="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Active Stage</p>
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-[#5A680C] font-bold">Active Stage</p>
                     </div>
-                    <p className="font-headline text-lg uppercase text-text-primary truncate">Dispatch Specs</p>
+                    <p className="font-headline text-lg uppercase text-[#2A2A24] truncate">Dispatch Specs</p>
                   </div>
                 </div>
 
@@ -265,11 +265,11 @@ export const CheckoutPage: React.FC = () => {
                 <div className="pt-space-md">
                   <button
                     type="submit"
-                    className="w-full min-h-[52px] px-space-lg py-space-md bg-primary-container hover:bg-primary-fixed active:scale-[0.98] transition-all rounded text-text-primary font-headline text-xl uppercase tracking-wide flex items-center justify-center gap-space-sm shadow-[3px_3px_0px_#171717]"
+                    className="w-full min-h-[52px] px-space-lg py-space-md bg-primary-container hover:bg-primary-fixed active:scale-[0.98] transition-all rounded text-text-primary font-headline text-xl uppercase tracking-wide flex items-center justify-center gap-space-sm shadow-[2px_2px_0px_rgba(42,42,36,0.1)]"
                   >
                     <span>CONTINUE TO PAYMENT →</span>
                   </button>
-                  <p className="text-center font-mono text-[10px] text-text-muted mt-space-xs uppercase">
+                  <p className="text-center font-mono text-[10px] text-[#66645A] mt-space-xs uppercase">
                     No charges made until payment authorization on next screen
                   </p>
                 </div>
@@ -277,12 +277,12 @@ export const CheckoutPage: React.FC = () => {
             </div>
 
             {/* Right Column (5 Cols): Order Mini Summary */}
-            <div className="lg:col-span-5 bg-surface-white rounded p-space-md lg:p-space-lg shadow-sm border border-border-neutral space-y-space-md">
-              <div className="flex items-center justify-between pb-space-xs border-b border-border-neutral">
-                <h2 className="font-headline text-2xl uppercase tracking-wide text-text-primary">
+            <div className="lg:col-span-5 bg-[#FFFFFF] rounded p-space-md lg:p-space-lg shadow-xs border border-[#E6E2D3] space-y-space-md">
+              <div className="flex items-center justify-between pb-space-xs border-b border-[#E6E2D3]">
+                <h2 className="font-headline text-2xl uppercase tracking-wide text-[#2A2A24]">
                   BATCH SUMMARY
                 </h2>
-                <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-surface-dark text-text-on-dark font-bold">
+                <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-primary-container text-text-primary font-bold">
                   {itemCount} PIECES (MOQ MET)
                 </span>
               </div>

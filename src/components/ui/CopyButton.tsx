@@ -35,7 +35,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded font-mono text-xs font-bold uppercase transition-all duration-200 border ${
         copied
           ? "bg-primary-container text-text-primary border-primary-container"
-          : "bg-surface-dark-secondary text-text-on-dark border-surface-dark-secondary hover:bg-surface-dark hover:border-primary-container"
+          : "bg-[#FFFFFF] text-[#2A2A24] border-[#E6E2D3] hover:bg-[#FAF8F0] hover:border-primary-container shadow-xs"
       } ${className}`}
     >
       {copied ? (
@@ -45,7 +45,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
         </>
       ) : (
         <>
-          <Copy className="w-3.5 h-3.5 text-primary-container" />
+          <Copy className="w-3.5 h-3.5 text-[#2A2A24]" />
           <span>{label}</span>
         </>
       )}

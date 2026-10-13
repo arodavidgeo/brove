@@ -57,6 +57,9 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [apparelType, setApparelType] = useState(initialApparel || APPAREL_OPTIONS[1]);
+  const availableApparelOptions = initialApparel && !APPAREL_OPTIONS.includes(initialApparel)
+    ? [initialApparel, ...APPAREL_OPTIONS]
+    : APPAREL_OPTIONS;
   const [quantity, setQuantity] = useState<number>(initialQuantity);
   const [printingMethod, setPrintingMethod] = useState(PRINTING_OPTIONS[0]);
   const [eventPurpose, setEventPurpose] = useState("");
@@ -204,33 +207,33 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
   if (submitted) {
     return (
-      <div className="bg-surface-white dark:bg-surface-dark border-4 border-primary-container p-6 sm:p-10 rounded shadow-[8px_8px_0px_#171717] dark:shadow-[8px_8px_0px_#F2D400] text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
+      <div className="bg-[#FFFFFF] border-4 border-primary-container p-6 sm:p-10 rounded shadow-[0_8px_30px_rgba(42,42,36,0.08)] text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
         {/* Yellow Confirmation Badge Animation */}
         <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
           <div className="absolute inset-0 rounded-full bg-primary-container animate-ping opacity-25"></div>
-          <div className="relative w-20 h-20 rounded-full bg-primary-container text-text-primary flex items-center justify-center border-2 border-text-primary shadow-[4px_4px_0px_#171717]">
+          <div className="relative w-20 h-20 rounded-full bg-primary-container text-text-primary flex items-center justify-center border-2 border-[#2A2A24] shadow-[4px_4px_0px_rgba(42,42,36,0.15)]">
             <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
           </div>
         </div>
 
         <div className="space-y-2 max-w-lg mx-auto">
-          <h3 className="font-headline text-3xl sm:text-5xl uppercase tracking-tight text-text-primary dark:text-text-on-dark">
+          <h3 className="font-headline text-3xl sm:text-5xl uppercase tracking-tight text-[#2A2A24]">
             REQUIREMENT RECEIVED.
           </h3>
-          <p className="font-body text-base text-text-muted dark:text-surface-container-highest">
+          <p className="font-body text-base text-[#66645A]">
             Your details have been recorded for BROVE. We'll review your specs and get back to you shortly.
           </p>
         </div>
 
         {/* Dispatch actions */}
-        <div className="bg-surface-paper dark:bg-surface-dark-secondary p-4 sm:p-6 rounded border border-border-neutral dark:border-surface-dark-secondary max-w-lg mx-auto space-y-4 text-left font-mono text-xs">
-          <div className="flex justify-between items-center border-b border-border-neutral pb-2 text-text-primary dark:text-text-on-dark font-bold">
+        <div className="bg-[#FAF8F0] p-4 sm:p-6 rounded border border-[#E6E2D3] max-w-lg mx-auto space-y-4 text-left font-mono text-xs">
+          <div className="flex justify-between items-center border-b border-[#E6E2D3] pb-2 text-[#2A2A24] font-bold">
             <span>SUMMARY:</span>
-            <span className="text-primary-container bg-surface-dark px-2 py-0.5 rounded">
+            <span className="text-[#2A2A24] bg-primary-container px-2 py-0.5 rounded font-bold">
               {quantity} × {apparelType}
             </span>
           </div>
-          <div className="text-text-muted dark:text-surface-container-high space-y-1">
+          <div className="text-[#66645A] space-y-1">
             <p><strong>Contact:</strong> {name} ({phone})</p>
             <p><strong>Print Method:</strong> {printingMethod}</p>
             {uploadedFile && <p><strong>Artwork:</strong> {uploadedFile.name}</p>}
@@ -241,7 +244,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 bg-primary-container text-text-primary font-headline text-sm uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_#171717]"
+              className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 bg-primary-container text-text-primary font-headline text-sm uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_rgba(42,42,36,0.12)]"
             >
               <MessageCircle className="w-4 h-4 fill-current stroke-none" />
               <span>SEND VIA WHATSAPP →</span>
@@ -249,7 +252,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
             <a
               href={emailUrl}
-              className="inline-flex items-center justify-center gap-2 py-3 px-4 bg-surface-dark text-text-on-dark dark:bg-surface-white dark:text-text-primary font-headline text-sm uppercase tracking-wider rounded hover:opacity-90 active:scale-95 transition-all border border-text-primary"
+              className="inline-flex items-center justify-center gap-2 py-3 px-4 bg-[#FFFFFF] hover:bg-[#FAF8F0] text-[#2A2A24] font-headline text-sm uppercase tracking-wider rounded border border-[#E6E2D3] active:scale-95 transition-all"
             >
               <Mail className="w-4 h-4" />
               <span>EMAIL TO BROVE</span>
@@ -262,7 +265,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
             setSubmitted(false);
             handleReset();
           }}
-          className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-text-muted hover:text-text-primary dark:hover:text-text-on-dark pt-2 transition-colors"
+          className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[#66645A] hover:text-[#2A2A24] pt-2 transition-colors"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>SUBMIT ANOTHER REQUIREMENT</span>
@@ -275,15 +278,15 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className={`relative bg-surface-white dark:bg-surface-dark border-2 border-text-primary dark:border-primary-container p-6 sm:p-8 lg:p-10 rounded shadow-[6px_6px_0px_#171717] dark:shadow-[6px_6px_0px_#F2D400] space-y-6 ${
+      className={`relative bg-[#FFFFFF] border-2 border-[#E6E2D3] p-6 sm:p-8 lg:p-10 rounded shadow-[0_8px_30px_rgba(42,42,36,0.06)] space-y-6 ${
         embedded ? "w-full" : "max-w-3xl mx-auto"
       }`}
     >
       {/* Top Banner Tag */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-border-neutral dark:border-surface-dark-secondary pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-[#E6E2D3] pb-4">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 bg-primary-container inline-block"></span>
-          <span className="font-mono text-xs uppercase tracking-widest text-text-primary dark:text-text-on-dark font-bold">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#2A2A24] font-bold">
             REQUIREMENT INTAKE
           </span>
         </div>
@@ -295,7 +298,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Name */}
         <div className="space-y-1.5">
-          <label htmlFor="req-name" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label htmlFor="req-name" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
             YOUR NAME <span className="text-red-500">*</span>
           </label>
           <input
@@ -307,8 +310,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
               if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
             }}
             placeholder="e.g. Ashwin Kumar"
-            className={`w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border ${
-              errors.name ? "border-red-500 ring-1 ring-red-500" : "border-border-neutral dark:border-surface-dark-secondary"
+            className={`w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border ${
+              errors.name ? "border-red-500 ring-1 ring-red-500" : "border-[#E6E2D3]"
             } font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container`}
           />
           {errors.name && (
@@ -321,7 +324,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
         {/* Phone */}
         <div className="space-y-1.5">
-          <label htmlFor="req-phone" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label htmlFor="req-phone" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
             PHONE NUMBER <span className="text-red-500">*</span>
           </label>
           <input
@@ -333,8 +336,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
               if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
             }}
             placeholder="e.g. 9443941897"
-            className={`w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border ${
-              errors.phone ? "border-red-500 ring-1 ring-red-500" : "border-border-neutral dark:border-surface-dark-secondary"
+            className={`w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border ${
+              errors.phone ? "border-red-500 ring-1 ring-red-500" : "border-[#E6E2D3]"
             } font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container`}
           />
           {errors.phone && (
@@ -349,8 +352,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Email */}
         <div className="space-y-1.5">
-          <label htmlFor="req-email" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
-            EMAIL ADDRESS <span className="text-text-muted font-normal">(OPTIONAL)</span>
+          <label htmlFor="req-email" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
+            EMAIL ADDRESS <span className="text-[#66645A] font-normal">(OPTIONAL)</span>
           </label>
           <input
             id="req-email"
@@ -361,8 +364,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
               if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
             }}
             placeholder="e.g. yourname@gmail.com"
-            className={`w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border ${
-              errors.email ? "border-red-500 ring-1 ring-red-500" : "border-border-neutral dark:border-surface-dark-secondary"
+            className={`w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border ${
+              errors.email ? "border-red-500 ring-1 ring-red-500" : "border-[#E6E2D3]"
             } font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container`}
           />
           {errors.email && (
@@ -375,7 +378,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
         {/* Apparel Type */}
         <div className="space-y-1.5">
-          <label htmlFor="req-apparel" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label htmlFor="req-apparel" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
             APPAREL TYPE <span className="text-red-500">*</span>
           </label>
           <select
@@ -385,9 +388,9 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
               setApparelType(e.target.value);
               if (errors.apparelType) setErrors((prev) => ({ ...prev, apparelType: "" }));
             }}
-            className="w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border border-border-neutral dark:border-surface-dark-secondary font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+            className="w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
           >
-            {APPAREL_OPTIONS.map((opt) => (
+            {availableApparelOptions.map((opt) => (
               <option key={opt} value={opt}>
                 {opt}
               </option>
@@ -405,7 +408,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Quantity (min 5) */}
         <div className="space-y-1.5">
-          <label htmlFor="req-qty" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label htmlFor="req-qty" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
             QUANTITY (MINIMUM 5) <span className="text-red-500">*</span>
           </label>
           <div className="flex items-center gap-2">
@@ -419,8 +422,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
                 setQuantity(isNaN(val) ? 0 : val);
                 if (errors.quantity) setErrors((prev) => ({ ...prev, quantity: "" }));
               }}
-              className={`w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border ${
-                errors.quantity ? "border-red-500 ring-1 ring-red-500" : "border-border-neutral dark:border-surface-dark-secondary"
+              className={`w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border ${
+                errors.quantity ? "border-red-500 ring-1 ring-red-500" : "border-[#E6E2D3]"
               } font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-container`}
             />
             <div className="flex gap-1 shrink-0">
@@ -435,7 +438,7 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
                   className={`px-2.5 py-1.5 font-mono text-xs rounded border transition-colors ${
                     quantity === preset
                       ? "bg-primary-container text-text-primary border-primary-container font-bold"
-                      : "bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border-border-neutral dark:border-surface-dark-secondary hover:border-primary-container"
+                      : "bg-[#FAF8F0] text-[#2A2A24] border-[#E6E2D3] hover:border-primary-container"
                   }`}
                 >
                   {preset}
@@ -453,14 +456,14 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
         {/* Printing Method */}
         <div className="space-y-1.5">
-          <label htmlFor="req-method" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label htmlFor="req-method" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
             PRINTING METHOD
           </label>
           <select
             id="req-method"
             value={printingMethod}
             onChange={(e) => setPrintingMethod(e.target.value)}
-            className="w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border border-border-neutral dark:border-surface-dark-secondary font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+            className="w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
           >
             {PRINTING_OPTIONS.map((opt) => (
               <option key={opt} value={opt}>
@@ -473,8 +476,8 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
 
       {/* Event / Purpose */}
       <div className="space-y-1.5">
-        <label htmlFor="req-event" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
-          EVENT / PURPOSE <span className="text-text-muted font-normal">(COLLEGE, CLUB, BRAND, EVENT, TEAM)</span>
+        <label htmlFor="req-event" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
+          EVENT / PURPOSE <span className="text-[#66645A] font-normal">(COLLEGE, CLUB, BRAND, EVENT, TEAM)</span>
         </label>
         <input
           id="req-event"
@@ -482,14 +485,14 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
           value={eventPurpose}
           onChange={(e) => setEventPurpose(e.target.value)}
           placeholder="e.g. Department Symposium 2026, Sports Team, Merchandise Drop"
-          className="w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border border-border-neutral dark:border-surface-dark-secondary font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+          className="w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
         />
       </div>
 
       {/* Requirements / Notes */}
       <div className="space-y-1.5">
-        <label htmlFor="req-msg" className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
-          MESSAGE & REQUIREMENTS <span className="text-text-muted font-normal">(SIZES, PLACEMENT, DEADLINE)</span>
+        <label htmlFor="req-msg" className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
+          MESSAGE & REQUIREMENTS <span className="text-[#66645A] font-normal">(SIZES, PLACEMENT, DEADLINE)</span>
         </label>
         <textarea
           id="req-msg"
@@ -497,31 +500,31 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell us about your print locations (front chest, back graphic, sleeve), sizes needed (e.g. 5 M, 10 L), or delivery deadlines..."
-          className="w-full px-4 py-2.5 rounded bg-surface-paper dark:bg-surface-dark-secondary text-text-primary dark:text-text-on-dark border border-border-neutral dark:border-surface-dark-secondary font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+          className="w-full px-4 py-2.5 rounded bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
         />
       </div>
 
       {/* Upload Design File */}
       <div className="space-y-1.5">
-        <span className="block font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
-          UPLOAD ARTWORK / REFERENCE <span className="text-text-muted font-normal">(OPTIONAL)</span>
+        <span className="block font-mono text-xs uppercase font-bold text-[#2A2A24]">
+          UPLOAD ARTWORK / REFERENCE <span className="text-[#66645A] font-normal">(OPTIONAL)</span>
         </span>
         
         {uploadedFile ? (
-          <div className="p-4 rounded bg-surface-paper dark:bg-surface-dark-secondary border border-border-neutral dark:border-surface-dark-secondary flex items-center justify-between gap-4">
+          <div className="p-4 rounded bg-[#FAF8F0] border border-[#E6E2D3] flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 overflow-hidden">
               {filePreview ? (
                 <img
                   src={filePreview}
                   alt="Artwork preview"
-                  className="w-12 h-12 object-cover rounded border border-border-neutral"
+                  className="w-12 h-12 object-cover rounded border border-[#E6E2D3]"
                 />
               ) : (
                 <FileCheck className="w-8 h-8 text-primary-container shrink-0" />
               )}
               <div className="truncate text-xs font-mono">
-                <p className="font-bold text-text-primary dark:text-text-on-dark truncate">{uploadedFile.name}</p>
-                <p className="text-text-muted">{(uploadedFile.size / 1024).toFixed(1)} KB</p>
+                <p className="font-bold text-[#2A2A24] truncate">{uploadedFile.name}</p>
+                <p className="text-[#66645A]">{(uploadedFile.size / 1024).toFixed(1)} KB</p>
               </div>
             </div>
             <button
@@ -534,12 +537,12 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
             </button>
           </div>
         ) : (
-          <label className="border-2 border-dashed border-border-neutral dark:border-surface-dark-secondary hover:border-primary-container dark:hover:border-primary-container rounded p-6 flex flex-col items-center justify-center cursor-pointer transition-colors text-center group">
-            <Upload className="w-6 h-6 text-text-muted group-hover:text-primary-container transition-colors mb-2" />
-            <span className="font-mono text-xs uppercase font-bold text-text-primary dark:text-text-on-dark">
+          <label className="border-2 border-dashed border-[#E6E2D3] hover:border-primary-container rounded p-6 flex flex-col items-center justify-center cursor-pointer transition-colors text-center group bg-[#FAF8F0]/50">
+            <Upload className="w-6 h-6 text-[#66645A] group-hover:text-[#5A680C] transition-colors mb-2" />
+            <span className="font-mono text-xs uppercase font-bold text-[#2A2A24]">
               Click to choose design file or drag and drop
             </span>
-            <span className="font-body text-[11px] text-text-muted mt-0.5">
+            <span className="font-body text-[11px] text-[#66645A] mt-0.5">
               PNG, JPG, PDF, AI, SVG, or PSD up to 50MB
             </span>
             <input
@@ -557,14 +560,14 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
         <button
           type="button"
           onClick={handleReset}
-          className="font-mono text-xs uppercase tracking-wider text-text-muted hover:text-text-primary dark:hover:text-text-on-dark transition-colors"
+          className="font-mono text-xs uppercase tracking-wider text-[#66645A] hover:text-[#2A2A24] transition-colors"
         >
           CLEAR FORM
         </button>
 
         <button
           type="submit"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary-container text-text-primary font-headline text-lg uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[4px_4px_0px_#171717] dark:shadow-[4px_4px_0px_#FFFFFF]"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary-container text-text-primary font-headline text-lg uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[3px_3px_0px_rgba(42,42,36,0.15)]"
         >
           <Send className="w-4 h-4" />
           <span>SEND YOUR REQUIREMENT →</span>
@@ -576,20 +579,20 @@ export const RequirementForm: React.FC<RequirementFormProps> = ({
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-dark/70 backdrop-blur-sm animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2A2A24]/40 backdrop-blur-xs animate-in fade-in"
         >
-          <div className="bg-surface-white dark:bg-surface-dark p-6 rounded-lg max-w-sm w-full border-2 border-text-primary dark:border-primary-container shadow-[6px_6px_0px_#171717] space-y-4">
-            <p className="font-headline text-xl uppercase text-text-primary dark:text-text-on-dark">
+          <div className="bg-[#FAF8F0] p-6 rounded-lg max-w-sm w-full border-2 border-primary-container shadow-[0_12px_32px_rgba(42,42,36,0.12)] space-y-4">
+            <p className="font-headline text-xl uppercase text-[#2A2A24]">
               CLEAR THIS REQUIREMENT?
             </p>
-            <p className="font-body text-xs text-text-muted">
+            <p className="font-body text-xs text-[#66645A]">
               Are you sure you want to reset the form? Any artwork or information you entered will be lost.
             </p>
             <div className="flex justify-end gap-3 pt-2">
               <button
                 type="button"
                 onClick={() => setShowResetConfirm(false)}
-                className="px-4 py-2 font-mono text-xs uppercase rounded border border-border-neutral hover:bg-surface-paper text-text-primary dark:text-text-on-dark"
+                className="px-4 py-2 font-mono text-xs uppercase rounded border border-[#E6E2D3] hover:bg-[#FFFFFF] text-[#2A2A24]"
               >
                 Cancel
               </button>

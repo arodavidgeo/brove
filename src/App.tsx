@@ -61,7 +61,7 @@ function MainApp() {
   useUTMTracking();
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-x-hidden bg-[#0B1D3A] text-text-primary dark:text-text-on-dark transition-colors duration-200">
+    <div className="flex flex-col min-h-screen relative overflow-x-hidden bg-[#F4F1E6] dark:bg-[#141412] text-text-primary dark:text-[#F4F1E6] transition-colors duration-200">
       <StudioBackground />
       <SkipToContent />
       <ScrollProgressBar />

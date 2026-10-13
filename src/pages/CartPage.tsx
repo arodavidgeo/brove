@@ -15,18 +15,18 @@ export const CartPage: React.FC = () => {
           description="Your workshop batch is currently empty. Explore our wardrobe canvases to begin customizing."
           path="/cart"
         />
-        <div className="w-full bg-surface-paper min-h-[70vh] flex items-center justify-center pt-24 px-4">
-          <div className="max-w-md mx-auto text-center space-y-6 bg-surface-white p-space-xl rounded shadow-sm border border-border-neutral">
-            <div className="w-16 h-16 bg-surface-paper mx-auto rounded-full flex items-center justify-center text-text-primary border border-border-neutral">
+        <div className="w-full bg-transparent min-h-[70vh] flex items-center justify-center pt-24 px-4 text-[#2A2A24]">
+          <div className="max-w-md mx-auto text-center space-y-6 bg-[#FFFFFF] p-space-xl rounded shadow-xs border border-[#E6E2D3]">
+            <div className="w-16 h-16 bg-[#FAF8F0] mx-auto rounded-full flex items-center justify-center text-[#2A2A24] border border-[#E6E2D3]">
               <span className="material-symbols-outlined text-[32px]">shopping_bag</span>
             </div>
-            <h1 className="font-headline text-4xl uppercase text-text-primary">YOUR CART IS EMPTY</h1>
-            <p className="text-xs text-text-muted leading-relaxed">
+            <h1 className="font-headline text-4xl uppercase text-[#2A2A24]">YOUR CART IS EMPTY</h1>
+            <p className="text-xs text-[#66645A] leading-relaxed">
               No garments have been placed into this batch. Select a silhouette from the wardrobe and configure your custom print.
             </p>
             <Link
               to="/wardrobe"
-              className="inline-flex items-center justify-center px-space-xl py-space-md rounded bg-primary-container text-text-primary font-headline text-base uppercase tracking-wider hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_#171717]"
+              className="inline-flex items-center justify-center px-space-xl py-space-md rounded bg-primary-container text-text-primary font-headline text-base uppercase tracking-wider hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_rgba(42,42,36,0.1)]"
             >
               EXPLORE WARDROBE →
             </Link>
@@ -44,27 +44,27 @@ export const CartPage: React.FC = () => {
         path="/cart"
       />
 
-      <div className="w-full bg-surface-paper min-h-screen pt-20">
+      <div className="w-full bg-transparent min-h-screen pt-20 text-[#2A2A24]">
         {/* Top Status & Step Header */}
-        <section className="w-full py-space-lg lg:py-space-xl px-margin-mobile lg:px-margin border-b border-border-neutral">
+        <section className="w-full py-space-lg lg:py-space-xl px-margin-mobile lg:px-margin border-b border-[#E6E2D3]">
           <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-space-md">
             <div>
-              <div className="inline-flex items-center gap-space-xs bg-surface-dark text-text-on-dark px-space-sm py-0.5 rounded font-mono text-[10px] uppercase tracking-widest mb-space-xs">
+              <div className="inline-flex items-center gap-space-xs bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] px-space-sm py-0.5 rounded font-mono text-[10px] uppercase tracking-widest mb-space-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
                 ORDER REVIEW • WORKSHOP BATCH
               </div>
-              <h1 className="font-headline text-5xl sm:text-6xl uppercase tracking-tight text-text-primary m-0">
+              <h1 className="font-headline text-5xl sm:text-6xl uppercase tracking-tight text-[#2A2A24] m-0">
                 YOUR CART
               </h1>
             </div>
 
             {/* Stepper Progress */}
-            <div className="bg-surface-container-high px-space-md py-space-sm rounded flex flex-wrap items-center gap-space-xs font-mono text-xs text-text-muted border border-border-neutral">
-              <span className="bg-surface-dark text-primary-container px-space-xs py-0.5 rounded font-bold">
+            <div className="bg-[#FAF8F0] px-space-md py-space-sm rounded flex flex-wrap items-center gap-space-xs font-mono text-xs text-[#66645A] border border-[#E6E2D3]">
+              <span className="bg-primary-container text-text-primary px-space-xs py-0.5 rounded font-bold">
                 01 CART
               </span>
               <span>→</span>
-              <span className="text-text-primary font-semibold">02 INFORMATION</span>
+              <span className="text-[#2A2A24] font-semibold">02 INFORMATION</span>
               <span>→</span>
               <span>03 PAYMENT</span>
               <span>→</span>
@@ -80,14 +80,14 @@ export const CartPage: React.FC = () => {
             {/* Left Column (8 Cols): Line Items */}
             <div className="lg:col-span-8 flex flex-col gap-space-md">
               {/* Batch Minimum Alert Banner */}
-              <div className="bg-primary-container text-text-primary px-space-md py-space-sm rounded flex items-center justify-between gap-space-sm shadow-[2px_2px_0px_#171717] border border-surface-dark">
+              <div className="bg-primary-container text-text-primary px-space-md py-space-sm rounded flex items-center justify-between gap-space-sm shadow-xs border border-[#E6E2D3]">
                 <div className="flex items-center gap-space-xs">
                   <span className="material-symbols-outlined text-[20px]">verified</span>
                   <span className="font-headline text-sm uppercase tracking-wide">
                     STUDIO PROTOCOL: 5-PIECE BATCH QUALIFIED ({itemCount} TOTAL PCS)
                   </span>
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider bg-surface-dark text-text-on-dark px-space-xs py-0.5 rounded font-bold">
+                <span className="font-mono text-[10px] uppercase tracking-wider bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] px-space-xs py-0.5 rounded font-bold">
                   MOQ MET
                 </span>
               </div>
@@ -98,16 +98,16 @@ export const CartPage: React.FC = () => {
                 return (
                   <div
                     key={item.id}
-                    className="bg-surface-white rounded p-space-md lg:p-space-lg shadow-sm flex flex-col md:flex-row gap-space-lg relative border border-border-neutral"
+                    className="bg-[#FFFFFF] rounded p-space-md lg:p-space-lg shadow-xs flex flex-col md:flex-row gap-space-lg relative border border-[#E6E2D3]"
                   >
                     {/* Thumbnail */}
-                    <div className="w-full md:w-56 shrink-0 aspect-[4/5] bg-surface-container-high rounded relative overflow-hidden flex items-center justify-center">
+                    <div className="w-full md:w-56 shrink-0 aspect-[4/5] bg-[#FAF8F0] rounded relative overflow-hidden flex items-center justify-center border border-[#E6E2D3]">
                       <img
                         src={item.image}
                         alt={item.productName}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-2 left-2 bg-surface-dark text-primary-container font-mono text-[10px] uppercase tracking-wider px-space-xs py-0.5 rounded font-bold">
+                      <div className="absolute top-2 left-2 bg-[#FAF8F0]/90 backdrop-blur-xs text-[#2A2A24] border border-[#E6E2D3] font-mono text-[10px] uppercase tracking-wider px-space-xs py-0.5 rounded font-bold">
                         240 GSM COTTON
                       </div>
                     </div>
@@ -164,7 +164,7 @@ export const CartPage: React.FC = () => {
                               300 DPI
                             </span>
                           </div>
-                          <span className="font-mono text-[10px] uppercase font-bold text-primary-container bg-surface-dark px-1.5 py-0.5 rounded">
+                          <span className="font-mono text-[10px] uppercase font-bold text-text-primary bg-primary-container px-1.5 py-0.5 rounded">
                             VERIFIED
                           </span>
                         </div>
@@ -284,7 +284,7 @@ export const CartPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => navigate("/checkout")}
-                  className="w-full py-space-md px-space-lg bg-primary-container text-text-primary font-headline text-xl uppercase tracking-wider rounded text-center hover:bg-primary-fixed active:scale-95 transition-all shadow-[3px_3px_0px_#171717] block"
+                  className="w-full py-space-md px-space-lg bg-primary-container text-text-primary font-headline text-xl uppercase tracking-wider rounded text-center hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_rgba(42,42,36,0.1)] block"
                 >
                   PROCEED TO CHECKOUT →
                 </button>

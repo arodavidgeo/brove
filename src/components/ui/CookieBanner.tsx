@@ -29,23 +29,23 @@ export const CookieBanner: React.FC = () => {
     <div
       role="region"
       aria-label="Cookie consent banner"
-      className="cookie-banner fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-md z-50 p-4 rounded bg-surface-dark text-text-on-dark border-2 border-primary-container shadow-[4px_4px_0px_#171717] transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
+      className="cookie-banner fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-md z-50 p-4 rounded bg-[#FAF8F0] text-[#2A2A24] border-2 border-primary-container shadow-[0_8px_24px_rgba(42,42,36,0.12)] transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
     >
       <div className="flex flex-col gap-3">
-        <p className="font-body text-xs text-surface-container-highest leading-relaxed">
+        <p className="font-body text-xs text-[#66645A] leading-relaxed">
           We use cookies to improve your experience and understand site usage.
         </p>
         <div className="flex items-center gap-2 pt-1">
           <button
             onClick={handleAccept}
-            className="px-4 py-1.5 bg-primary-container text-text-primary font-mono text-xs font-bold uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_#FFFFFF]"
+            className="px-4 py-1.5 bg-primary-container text-text-primary font-mono text-xs font-bold uppercase tracking-wider rounded hover:bg-primary-fixed active:scale-95 transition-all shadow-[2px_2px_0px_rgba(42,42,36,0.1)]"
           >
             Accept
           </button>
           <Link
             to="/privacy"
             onClick={handleDismiss}
-            className="px-3 py-1.5 text-text-muted hover:text-text-on-dark font-mono text-xs uppercase tracking-wider transition-colors"
+            className="px-3 py-1.5 text-[#66645A] hover:text-[#2A2A24] font-mono text-xs uppercase tracking-wider transition-colors"
           >
             Learn More
           </Link>

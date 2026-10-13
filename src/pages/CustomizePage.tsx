@@ -98,7 +98,7 @@ export const CustomizePage: React.FC = () => {
         path={`/customize/${selectedProduct.id}`}
       />
 
-      <div className="w-full bg-surface min-h-[calc(100vh-5rem)] pt-20">
+      <div className="w-full bg-transparent min-h-[calc(100vh-5rem)] pt-20">
         {/* Studio Sub-Header Workbench Bar */}
         <div className="w-full bg-surface-paper py-space-md border-b border-border-neutral">
           <div className="max-w-[1400px] mx-auto px-margin-mobile lg:px-margin flex flex-wrap items-center justify-between gap-space-sm">
@@ -165,7 +165,7 @@ export const CustomizePage: React.FC = () => {
               <div className="bg-surface-white p-space-lg rounded shadow-sm space-y-space-md border border-border-neutral">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-mono text-xs font-bold bg-surface-dark text-text-on-dark w-5 h-5 rounded-full flex items-center justify-center">
+                    <span className="font-mono text-xs font-bold bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] w-5 h-5 rounded-full flex items-center justify-center">
                       1
                     </span>
                     <h2 className="font-headline text-xl uppercase tracking-wider text-text-primary">
@@ -181,7 +181,7 @@ export const CustomizePage: React.FC = () => {
                     onClick={() => setPrintTechnique("dtf")}
                     className={`relative flex flex-col p-space-md rounded cursor-pointer transition-all border ${
                       printTechnique === "dtf"
-                        ? "bg-primary-container text-text-primary border-surface-dark shadow-[2px_2px_0px_#171717]"
+                        ? "bg-primary-container text-text-primary border-[#2A2A24] shadow-[2px_2px_0px_rgba(42,42,36,0.12)]"
                         : "bg-surface-paper text-text-primary border-border-neutral hover:bg-surface-container"
                     }`}
                   >
@@ -192,7 +192,7 @@ export const CustomizePage: React.FC = () => {
                     <p className="text-xs leading-relaxed">
                       Vibrant, high-density continuous tones, precise photorealistic detail & gradient rendering.
                     </p>
-                    <span className="mt-space-sm font-mono text-[10px] uppercase tracking-wider bg-surface-dark text-text-on-dark px-1.5 py-0.5 rounded w-max font-bold">
+                    <span className="mt-space-sm font-mono text-[10px] uppercase tracking-wider bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] px-1.5 py-0.5 rounded w-max font-bold">
                       NO COLOR LIMIT
                     </span>
                   </div>
@@ -202,7 +202,7 @@ export const CustomizePage: React.FC = () => {
                     onClick={() => setPrintTechnique("embroidery")}
                     className={`relative flex flex-col p-space-md rounded cursor-pointer transition-all border ${
                       printTechnique === "embroidery"
-                        ? "bg-primary-container text-text-primary border-surface-dark shadow-[2px_2px_0px_#171717]"
+                        ? "bg-primary-container text-text-primary border-[#2A2A24] shadow-[2px_2px_0px_rgba(42,42,36,0.12)]"
                         : "bg-surface-paper text-text-primary border-border-neutral hover:bg-surface-container"
                     }`}
                   >
@@ -224,7 +224,7 @@ export const CustomizePage: React.FC = () => {
               <div className="bg-surface-white p-space-lg rounded shadow-sm space-y-space-md border border-border-neutral">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-mono text-xs font-bold bg-surface-dark text-text-on-dark w-5 h-5 rounded-full flex items-center justify-center">
+                    <span className="font-mono text-xs font-bold bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] w-5 h-5 rounded-full flex items-center justify-center">
                       2
                     </span>
                     <h2 className="font-headline text-xl uppercase tracking-wider text-text-primary">
@@ -235,7 +235,7 @@ export const CustomizePage: React.FC = () => {
                 </div>
 
                 {/* Dropzone */}
-                <label className="relative bg-surface-paper rounded p-space-lg flex flex-col items-center justify-center text-center cursor-pointer transition-colors hover:bg-surface-container border-2 border-dashed border-surface-dark">
+                <label className="relative bg-surface-paper rounded p-space-lg flex flex-col items-center justify-center text-center cursor-pointer transition-colors hover:bg-surface-container border-2 border-dashed border-[#2A2A24]/30">
                   <input
                     type="file"
                     onChange={handleFileUpload}
@@ -273,7 +273,7 @@ export const CustomizePage: React.FC = () => {
                 {/* Verified Artwork Chip */}
                 <div className="bg-surface-paper p-space-md rounded flex items-center justify-between gap-space-md border border-border-neutral">
                   <div className="flex items-center gap-space-md min-w-0">
-                    <div className="w-12 h-12 bg-surface-dark rounded flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 bg-[#FFFFFF] border border-[#E6E2D3] rounded flex items-center justify-center shrink-0">
                       {artworkPreview ? (
                         <img
                           src={artworkPreview}
@@ -281,7 +281,7 @@ export const CustomizePage: React.FC = () => {
                           className="w-full h-full object-contain p-1"
                         />
                       ) : (
-                        <span className="material-symbols-outlined text-primary-container text-[24px]">
+                        <span className="material-symbols-outlined text-text-primary text-[24px]">
                           view_in_ar
                         </span>
                       )}
@@ -316,7 +316,7 @@ export const CustomizePage: React.FC = () => {
               <div className="bg-surface-white p-space-lg rounded shadow-sm space-y-space-md border border-border-neutral">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-mono text-xs font-bold bg-surface-dark text-text-on-dark w-5 h-5 rounded-full flex items-center justify-center">
+                    <span className="font-mono text-xs font-bold bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] w-5 h-5 rounded-full flex items-center justify-center">
                       3
                     </span>
                     <h2 className="font-headline text-xl uppercase tracking-wider text-text-primary">
@@ -367,7 +367,7 @@ export const CustomizePage: React.FC = () => {
                         onClick={() => setSelectedPlacement(plc.id)}
                         className={`flex items-center gap-space-xs p-space-sm rounded cursor-pointer border ${
                           selectedPlacement === plc.id
-                            ? "bg-primary-container/20 border-surface-dark text-text-primary font-bold"
+                            ? "bg-primary-container/20 border-[#2A2A24] text-text-primary font-bold"
                             : "bg-surface-paper border-border-neutral text-text-muted hover:bg-surface-container"
                         }`}
                       >
@@ -376,7 +376,7 @@ export const CustomizePage: React.FC = () => {
                           name="placement"
                           checked={selectedPlacement === plc.id}
                           readOnly
-                          className="accent-[#171717]"
+                          className="accent-[#2A2A24]"
                         />
                         <span className="text-xs">{plc.label}</span>
                       </label>
@@ -389,7 +389,7 @@ export const CustomizePage: React.FC = () => {
               <div className="bg-surface-white p-space-lg rounded shadow-sm space-y-space-md border border-border-neutral">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-space-xs">
-                    <span className="font-mono text-xs font-bold bg-surface-dark text-text-on-dark w-5 h-5 rounded-full flex items-center justify-center">
+                    <span className="font-mono text-xs font-bold bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] w-5 h-5 rounded-full flex items-center justify-center">
                       4
                     </span>
                     <h2 className="font-headline text-xl uppercase tracking-wider text-text-primary">
@@ -402,7 +402,7 @@ export const CustomizePage: React.FC = () => {
                 </div>
 
                 <div className="bg-surface-paper p-space-sm rounded flex items-center gap-space-sm border border-border-neutral">
-                  <span className="material-symbols-outlined text-primary-container bg-surface-dark p-1 rounded text-[18px]">
+                  <span className="material-symbols-outlined text-[#2A2A24] bg-[#FFFFFF] border border-[#E6E2D3] p-1 rounded text-[18px]">
                     info
                   </span>
                   <p className="text-xs text-text-primary">
@@ -449,7 +449,7 @@ export const CustomizePage: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-space-sm">
                     <span className={`font-headline text-3xl px-space-md py-1 rounded ${
-                      totalUnits >= 5 ? "bg-surface-dark text-primary-container" : "bg-red-700 text-white"
+                      totalUnits >= 5 ? "bg-primary-container text-text-primary font-bold border border-[#E6E2D3]" : "bg-red-700 text-white"
                     }`}>
                       {totalUnits}
                     </span>
@@ -473,22 +473,22 @@ export const CustomizePage: React.FC = () => {
               </div>
 
               {/* Bottom Quote & Add To Cart CTA */}
-              <div className="bg-surface-dark text-text-on-dark p-space-lg rounded shadow-xl space-y-space-md border border-surface-dark-secondary">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-surface-dark-secondary pb-space-md">
+              <div className="bg-[#FAF8F0] text-[#2A2A24] p-space-lg rounded shadow-md space-y-space-md border-2 border-[#E6E2D3]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-[#E6E2D3] pb-space-md">
                   <div>
-                    <span className="font-mono text-xs text-primary-container uppercase tracking-wider">
+                    <span className="font-mono text-xs text-text-muted uppercase tracking-wider font-bold">
                       ESTIMATED PRODUCTION QUOTE
                     </span>
                     <div className="flex items-baseline gap-space-xs">
-                      <span className="font-headline text-5xl sm:text-6xl text-primary-container leading-none">
+                      <span className="font-headline text-5xl sm:text-6xl text-text-primary leading-none">
                         ₹{totalPrice.toLocaleString("en-IN")}
                       </span>
                       <span className="text-xs text-text-muted font-mono">ALL INCL. GST</span>
                     </div>
                   </div>
                   <div className="text-left sm:text-right text-text-muted text-xs font-mono">
-                    <p>Base: <span className="text-text-on-dark font-bold">₹{unitRate}</span> × {totalUnits} pcs</p>
-                    <p>Print Setup: <span className="text-primary-container font-bold">FREE</span> (5+ batch)</p>
+                    <p>Base: <span className="text-text-primary font-bold">₹{unitRate}</span> × {totalUnits} pcs</p>
+                    <p>Print Setup: <span className="text-text-primary font-bold bg-primary-container px-1 py-0.5 rounded">FREE</span> (5+ batch)</p>
                   </div>
                 </div>
 
@@ -497,12 +497,12 @@ export const CustomizePage: React.FC = () => {
                     type="button"
                     onClick={handleAddToCart}
                     disabled={totalUnits < 5}
-                    className="w-full sm:flex-1 py-space-md px-space-lg bg-primary-container text-text-primary font-headline text-xl uppercase tracking-wider rounded text-center hover:bg-primary-fixed active:scale-95 transition-all shadow-[3px_3px_0px_#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:flex-1 py-space-md px-space-lg bg-primary-container text-text-primary font-headline text-xl uppercase tracking-wider rounded text-center hover:bg-primary-fixed active:scale-95 transition-all shadow-[3px_3px_0px_rgba(42,42,36,0.12)] border border-[#2A2A24] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     ADD TO CART →
                   </button>
                   <div className="flex items-center gap-space-xs text-text-muted font-mono text-xs uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-[18px] text-primary-container">local_shipping</span>
+                    <span className="material-symbols-outlined text-[18px] text-[#2A2A24]">local_shipping</span>
                     <span>SHIPS IN 3-7 DAYS PAN-INDIA</span>
                   </div>
                 </div>
@@ -518,7 +518,7 @@ export const CustomizePage: React.FC = () => {
                   <div className="flex items-center gap-space-xs">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-600"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-surface-dark"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#E6E2D3]"></span>
                     <span className="font-mono text-xs uppercase tracking-wider text-text-muted ml-space-xs">
                       VIEWPORT: {viewportView.toUpperCase()}
                     </span>
@@ -528,7 +528,7 @@ export const CustomizePage: React.FC = () => {
                       type="button"
                       onClick={() => setViewportView("front")}
                       className={`px-space-xs py-0.5 rounded font-mono text-xs uppercase font-bold transition-colors ${
-                        viewportView === "front" ? "bg-surface-dark text-text-on-dark" : "text-text-primary hover:bg-surface-container"
+                        viewportView === "front" ? "bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] shadow-xs" : "text-text-primary hover:bg-surface-container"
                       }`}
                     >
                       FRONT
@@ -537,7 +537,7 @@ export const CustomizePage: React.FC = () => {
                       type="button"
                       onClick={() => setViewportView("back")}
                       className={`px-space-xs py-0.5 rounded font-mono text-xs uppercase font-bold transition-colors ${
-                        viewportView === "back" ? "bg-surface-dark text-text-on-dark" : "text-text-primary hover:bg-surface-container"
+                        viewportView === "back" ? "bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] shadow-xs" : "text-text-primary hover:bg-surface-container"
                       }`}
                     >
                       BACK
@@ -555,7 +555,7 @@ export const CustomizePage: React.FC = () => {
 
                   {/* Print Bounding Box Safe Overlay */}
                   <div className="absolute inset-x-12 top-28 bottom-32 pointer-events-none flex flex-col items-center justify-center border-2 border-dashed border-primary-container">
-                    <div className="relative w-44 h-48 bg-surface-dark/70 backdrop-blur-[2px] rounded p-2 flex flex-col items-center justify-center text-center shadow-lg border-2 border-primary-container">
+                    <div className="relative w-44 h-48 bg-[#FAF8F0]/90 backdrop-blur-xs rounded p-2 flex flex-col items-center justify-center text-center shadow-md border-2 border-primary-container">
                       {artworkPreview ? (
                         <img
                           src={artworkPreview}
@@ -564,18 +564,18 @@ export const CustomizePage: React.FC = () => {
                         />
                       ) : (
                         <>
-                          <span className="material-symbols-outlined text-primary-container text-[40px]">texture</span>
-                          <span className="font-headline text-lg uppercase text-text-on-dark tracking-wider mt-1">
+                          <span className="material-symbols-outlined text-text-primary text-[40px]">texture</span>
+                          <span className="font-headline text-lg uppercase text-text-primary tracking-wider mt-1">
                             IDENTITY
                           </span>
                         </>
                       )}
-                      <span className="font-mono text-[9px] text-primary-container tracking-widest uppercase mt-1">
+                      <span className="font-mono text-[9px] text-text-muted tracking-widest uppercase font-bold mt-1">
                         {printTechnique === "dtf" ? "DTF PRINT READY" : "TACTILE EMBROIDERY"}
                       </span>
                     </div>
 
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-surface-dark text-primary-container font-mono text-[10px] px-2 py-0.5 rounded uppercase font-bold shadow">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FAF8F0] text-[#2A2A24] border border-[#E6E2D3] font-mono text-[10px] px-2 py-0.5 rounded uppercase font-bold shadow-xs">
                       A3 SAFE PRINT ZONE (12 × 16 IN)
                     </span>
                   </div>
@@ -584,7 +584,7 @@ export const CustomizePage: React.FC = () => {
                 {/* Telemetry Footer */}
                 <div className="w-full pt-space-sm flex items-center justify-between text-text-muted font-mono text-xs">
                   <span>SCALE: 1:1 CALIBRATED</span>
-                  <span className="text-primary-container font-bold bg-surface-dark px-2 py-0.5 rounded">
+                  <span className="text-[#2A2A24] font-bold bg-[#FAF8F0] border border-[#E6E2D3] px-2 py-0.5 rounded">
                     BATCH: {totalUnits} PCS
                   </span>
                 </div>

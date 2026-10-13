@@ -194,20 +194,20 @@ export const SiteSearchModal: React.FC<SiteSearchModalProps> = ({ isOpen, onClos
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-surface-dark/85 backdrop-blur-md animate-in fade-in duration-150"
+      className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-[#2A2A24]/40 backdrop-blur-sm animate-in fade-in duration-150"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label="Site Search"
     >
       <div
-        className="relative w-full max-w-2xl bg-surface-dark border-2 border-primary-container rounded-lg shadow-[8px_8px_0px_#171717] overflow-hidden text-text-on-dark flex flex-col"
+        className="relative w-full max-w-2xl bg-[#FAF8F0] border-2 border-primary-container rounded-lg shadow-[0_12px_40px_rgba(42,42,36,0.15)] overflow-hidden text-[#2A2A24] flex flex-col"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 p-4 sm:p-5 border-b border-surface-dark-secondary bg-surface-dark">
-          <Search className="w-5 h-5 text-primary-container shrink-0" />
+        <div className="flex items-center gap-3 p-4 sm:p-5 border-b border-[#E6E2D3] bg-[#FFFFFF]">
+          <Search className="w-5 h-5 text-[#5A680C] shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -217,25 +217,25 @@ export const SiteSearchModal: React.FC<SiteSearchModalProps> = ({ isOpen, onClos
               setSelectedIndex(0);
             }}
             placeholder="Search wardrobe, DTF, embroidery, pricing, FAQ..."
-            className="w-full bg-transparent text-text-on-dark placeholder-text-muted font-body text-base sm:text-lg focus:outline-none"
+            className="w-full bg-transparent text-[#2A2A24] placeholder-[#66645A]/70 font-body text-base sm:text-lg focus:outline-none"
           />
           {query ? (
             <button
               onClick={() => setQuery("")}
-              className="p-1 hover:text-primary-container text-text-muted transition-colors"
+              className="p-1 hover:text-[#5A680C] text-[#66645A] transition-colors"
               aria-label="Clear query"
             >
               <X className="w-5 h-5" />
             </button>
           ) : (
-            <kbd className="hidden sm:inline-block px-2 py-0.5 font-mono text-[11px] bg-surface-dark-secondary text-text-muted rounded border border-surface-dark-secondary">
+            <kbd className="hidden sm:inline-block px-2 py-0.5 font-mono text-[11px] bg-[#FAF8F0] text-[#66645A] rounded border border-[#E6E2D3]">
               ESC
             </kbd>
           )}
         </div>
 
         {/* Results List */}
-        <div className="max-h-[60vh] overflow-y-auto divide-y divide-surface-dark-secondary p-2">
+        <div className="max-h-[60vh] overflow-y-auto divide-y divide-[#E6E2D3] p-2 bg-[#FAF8F0]">
           {results.length > 0 ? (
             results.map((item, index) => {
               const isSelected = index === selectedIndex;
@@ -246,27 +246,27 @@ export const SiteSearchModal: React.FC<SiteSearchModalProps> = ({ isOpen, onClos
                   onMouseEnter={() => setSelectedIndex(index)}
                   className={`w-full text-left p-3.5 rounded flex items-center justify-between gap-3 transition-colors ${
                     isSelected
-                      ? "bg-surface-dark-secondary text-text-on-dark"
-                      : "hover:bg-surface-dark-secondary/50 text-surface-container-highest"
+                      ? "bg-[#FFFFFF] text-[#2A2A24] shadow-xs"
+                      : "hover:bg-[#FFFFFF]/70 text-[#2A2A24]"
                   }`}
                 >
                   <div className="space-y-1 overflow-hidden pr-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-surface-dark text-primary-container border border-surface-dark-secondary">
+                      <span className="font-mono text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-[#FAF8F0] text-[#5A680C] border border-[#E6E2D3]">
                         {item.category}
                       </span>
-                      <span className="font-headline text-lg uppercase tracking-wide text-text-on-dark truncate">
+                      <span className="font-headline text-lg uppercase tracking-wide text-[#2A2A24] truncate">
                         {item.title}
                       </span>
                     </div>
-                    <p className="font-body text-xs text-text-muted truncate">
+                    <p className="font-body text-xs text-[#66645A] truncate">
                       {item.subtitle}
                     </p>
                   </div>
 
-                  <div className="shrink-0 flex items-center gap-1 text-primary-container">
+                  <div className="shrink-0 flex items-center gap-1 text-[#5A680C]">
                     {isSelected && (
-                      <span className="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-text-muted uppercase">
+                      <span className="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-[#66645A] uppercase">
                         <span>Select</span>
                         <CornerDownLeft className="w-3 h-3" />
                       </span>
@@ -278,8 +278,8 @@ export const SiteSearchModal: React.FC<SiteSearchModalProps> = ({ isOpen, onClos
             })
           ) : (
             <div className="p-8 text-center space-y-2">
-              <p className="font-headline text-xl text-text-on-dark uppercase">No matching entries</p>
-              <p className="font-body text-xs text-text-muted">
+              <p className="font-headline text-xl text-[#2A2A24] uppercase">No matching entries</p>
+              <p className="font-body text-xs text-[#66645A]">
                 Try searching for "Oversized", "DTF", "Pricing", "Embroidery", or "MOQ".
               </p>
             </div>
@@ -287,13 +287,13 @@ export const SiteSearchModal: React.FC<SiteSearchModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Bottom Help Bar */}
-        <div className="p-3 bg-surface-dark-secondary/60 border-t border-surface-dark-secondary flex items-center justify-between font-mono text-[11px] text-text-muted px-4">
+        <div className="p-3 bg-[#FAF8F0] border-t border-[#E6E2D3] flex items-center justify-between font-mono text-[11px] text-[#66645A] px-4">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>
             <span>ESC Close</span>
           </div>
-          <span className="text-primary-container font-bold">BROVE SEARCH</span>
+          <span className="text-[#5A680C] font-bold">BROVE SEARCH</span>
         </div>
       </div>
     </div>

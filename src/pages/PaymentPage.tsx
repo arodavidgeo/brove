@@ -71,56 +71,56 @@ export const PaymentPage: React.FC = () => {
         path="/checkout/payment"
       />
 
-      <div className="w-full bg-surface-paper min-h-screen pt-20">
+      <div className="w-full bg-transparent min-h-screen pt-20 text-[#2A2A24]">
         <div className="w-full max-w-[1400px] mx-auto px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl">
           
           {/* Top Breadcrumb & Step Navigation */}
           <div className="flex flex-col gap-space-md mb-space-lg">
-            <div className="flex items-center gap-space-xs text-text-muted font-mono text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-space-xs text-[#66645A] font-mono text-xs uppercase tracking-wider">
               <Link to="/checkout" className="hover:text-text-primary transition-colors flex items-center gap-1">
                 <span className="material-symbols-outlined text-[16px]">arrow_back</span>
                 Return to Customer Information
               </Link>
               <span>/</span>
-              <span className="text-text-primary font-bold">Checkout Step 03</span>
+              <span className="text-[#2A2A24] font-bold">Checkout Step 03</span>
             </div>
 
             {/* Stepper Card */}
-            <div className="bg-surface-white p-space-md rounded shadow-sm w-full border border-border-neutral">
+            <div className="bg-[#FAF8F0] p-space-md rounded shadow-xs w-full border border-[#E6E2D3]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-space-md items-center">
                 {/* Step 1 */}
                 <div className="flex items-center gap-space-xs">
-                  <div className="w-6 h-6 rounded-full bg-surface-dark text-text-on-dark flex items-center justify-center shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[14px]">check</span>
                   </div>
                   <div className="min-w-0">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Step 01</p>
-                    <p className="font-mono text-xs uppercase text-text-primary truncate font-bold">Cart & Batches</p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-[#66645A]">Step 01</p>
+                    <p className="font-mono text-xs uppercase text-[#2A2A24] truncate font-bold">Cart & Batches</p>
                   </div>
                 </div>
 
                 {/* Step 2 */}
                 <div className="flex items-center gap-space-xs">
-                  <div className="w-6 h-6 rounded-full bg-surface-dark text-text-on-dark flex items-center justify-center shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[14px]">check</span>
                   </div>
                   <div className="min-w-0">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Step 02</p>
-                    <p className="font-mono text-xs uppercase text-text-primary truncate font-bold">Dispatch Specs</p>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-[#66645A]">Step 02</p>
+                    <p className="font-mono text-xs uppercase text-[#2A2A24] truncate font-bold">Dispatch Specs</p>
                   </div>
                 </div>
 
                 {/* Step 3 (Active) */}
                 <div className="flex items-center gap-space-xs">
-                  <div className="w-6 h-6 rounded-full bg-primary-container text-text-primary font-bold flex items-center justify-center shrink-0 shadow-[1px_1px_0px_#171717]">
+                  <div className="w-6 h-6 rounded-full bg-primary-container text-text-primary font-bold flex items-center justify-center shrink-0 shadow-xs">
                     <span className="font-mono text-xs">03</span>
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1">
                       <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
-                      <p className="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Active Stage</p>
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-[#5A680C] font-bold">Active Stage</p>
                     </div>
-                    <p className="font-headline text-lg uppercase text-text-primary truncate">Authorisation</p>
+                    <p className="font-headline text-lg uppercase text-[#2A2A24] truncate">Authorisation</p>
                   </div>
                 </div>
 
@@ -154,24 +154,24 @@ export const PaymentPage: React.FC = () => {
             {/* Left Column (7 Cols): Payment Authorisation Mechanism */}
             <div className="lg:col-span-7 flex flex-col gap-space-md">
               {/* Total Payable Industrial Banner */}
-              <div className="bg-surface-dark text-text-on-dark p-space-md lg:p-space-lg rounded shadow-sm relative overflow-hidden border border-surface-dark-secondary">
+              <div className="bg-[#FAF8F0] text-[#2A2A24] p-space-md lg:p-space-lg rounded shadow-xs relative overflow-hidden border-2 border-[#E6E2D3]">
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm relative z-10">
                   <div>
                     <span className="bg-primary-container text-text-primary px-space-xs py-0.5 rounded font-mono text-[10px] uppercase tracking-widest font-bold">
                       SECURED LOCK-IN
                     </span>
-                    <p className="font-mono text-xs uppercase tracking-wider text-text-muted mt-space-xs">
+                    <p className="font-mono text-xs uppercase tracking-wider text-[#66645A] mt-space-xs">
                       Total Payable Amount
                     </p>
-                    <p className="font-headline text-5xl sm:text-6xl text-primary-container leading-none tracking-normal mt-1">
+                    <p className="font-headline text-5xl sm:text-6xl text-[#2A2A24] leading-none tracking-normal mt-1">
                       ₹{subtotal.toLocaleString("en-IN")}
                     </p>
                   </div>
                   <div className="text-left sm:text-right max-w-xs">
-                    <p className="text-xs text-surface-container-highest">
+                    <p className="text-xs text-[#66645A]">
                       Includes all applicable GST (5%), batch film separations, and ST Courier dispatch across India.
                     </p>
-                    <p className="font-mono text-[10px] text-primary-container uppercase tracking-wider mt-1 font-bold">
+                    <p className="font-mono text-[10px] text-[#5A680C] uppercase tracking-wider mt-1 font-bold">
                       ZERO SURCHARGE GUARANTEE
                     </p>
                   </div>
@@ -179,16 +179,16 @@ export const PaymentPage: React.FC = () => {
               </div>
 
               {/* Prototype Notice */}
-              <div className="bg-surface-container-high p-space-md rounded flex items-start gap-space-sm border border-border-neutral">
-                <span className="material-symbols-outlined text-text-primary text-[20px] shrink-0 mt-0.5">terminal</span>
+              <div className="bg-[#FAF8F0] p-space-md rounded flex items-start gap-space-sm border border-[#E6E2D3]">
+                <span className="material-symbols-outlined text-[#5A680C] text-[20px] shrink-0 mt-0.5">terminal</span>
                 <div className="space-y-0.5">
-                  <p className="font-headline text-sm text-text-primary uppercase tracking-wide flex items-center gap-space-xs">
+                  <p className="font-headline text-sm text-[#2A2A24] uppercase tracking-wide flex items-center gap-space-xs">
                     Production Sandbox Ready
-                    <span className="bg-surface-dark text-text-on-dark font-mono text-[9px] px-1.5 py-0.2 rounded">
+                    <span className="bg-[#FFFFFF] text-[#2A2A24] border border-[#E6E2D3] font-mono text-[9px] px-1.5 py-0.2 rounded">
                       STAGING v2.4
                     </span>
                   </p>
-                  <p className="text-xs text-text-muted">
+                  <p className="text-xs text-[#66645A]">
                     Workshop payment gateway sandbox is currently active. Any simulated payment clears into our physical production queue for proof verification.
                   </p>
                 </div>
@@ -448,12 +448,12 @@ export const PaymentPage: React.FC = () => {
             </div>
 
             {/* Right Column (5 Cols): Order Mini Summary */}
-            <div className="lg:col-span-5 bg-surface-white rounded p-space-md lg:p-space-lg shadow-sm border border-border-neutral space-y-space-md lg:sticky lg:top-24">
-              <div className="flex items-center justify-between pb-space-xs border-b border-border-neutral">
-                <h2 className="font-headline text-2xl uppercase tracking-wide text-text-primary">
+            <div className="lg:col-span-5 bg-[#FFFFFF] rounded p-space-md lg:p-space-lg shadow-xs border border-[#E6E2D3] space-y-space-md lg:sticky lg:top-24">
+              <div className="flex items-center justify-between pb-space-xs border-b border-[#E6E2D3]">
+                <h2 className="font-headline text-2xl uppercase tracking-wide text-[#2A2A24]">
                   BATCH SUMMARY (01)
                 </h2>
-                <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-surface-dark text-text-on-dark font-bold">
+                <span className="font-mono text-xs uppercase px-2 py-0.5 rounded bg-primary-container text-text-primary font-bold">
                   {itemCount} PIECES (MOQ MET)
                 </span>
               </div>
